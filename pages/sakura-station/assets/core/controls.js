@@ -1,0 +1,17 @@
+import * as THREE from '../vendor/three/build/three.module.min.js';
+const clamp=THREE.MathUtils.clamp;
+export class DioramaControls{
+  constructor(camera,canvas){this.camera=camera;this.canvas=canvas;this.target=new THREE.Vector3(0,1.4,0);this.goal=this.target.clone();this.theta=.64;this.phi=.86;this.logRadius=Math.log(32);this.nextTheta=this.theta;this.nextPhi=this.phi;this.nextLog=this.logRadius;this.pointers=new Map();this.dragging=false;this.panMode=false;this.mobile=innerWidth<700;this.reset();this.resize();
+    canvas.addEventListener('contextmenu',e=>e.preventDefault());
+    canvas.addEventListener('pointerdown',e=>{canvas.focus({preventScroll:true});canvas.setPointerCapture(e.pointerId);this.pointers.set(e.pointerId,{x:e.clientX,y:e.clientY});this.panMode=e.button===2||e.button===1||e.shiftKey;this.dragging=true;});
+    canvas.addEventListener('pointermove',e=>this.move(e));
+    for(const name of ['pointerup','pointercancel','lostpointercapture'])canvas.addEventListener(name,e=>{this.pointers.delete(e.pointerId);this.dragging=this.pointers.size>0;});
+    canvas.addEventListener('wheel',e=>{e.preventDefault();const unit=e.deltaMode===1?16:e.deltaMode===2?canvas.clientHeight:1;this.nextLog=clamp(this.nextLog+e.deltaY*unit*.0011,Math.log(.7),Math.log(140));},{passive:false});
+    canvas.addEventListener('keydown',e=>{if(e.key==='Home'){this.reset();e.preventDefault();}if(e.key==='+'||e.key==='=')this.nextLog-=.1;if(e.key==='-')this.nextLog+=.1;const directions={ArrowLeft:[24,0],ArrowRight:[-24,0],ArrowUp:[0,24],ArrowDown:[0,-24]};if(directions[e.key]){this.pan(...directions[e.key]);e.preventDefault();}});
+  }
+  reset(){const portrait=innerWidth/innerHeight<.85;this.goal.set(0,.4,0);this.nextTheta=.58;this.nextPhi=1.01;this.nextLog=Math.log(portrait?40/(innerWidth/innerHeight):35);}
+  resize(){const mobile=innerWidth<700;if(this.mobile!==mobile){this.mobile=mobile;this.reset();}}
+  pan(dx,dy){const scale=2*Math.exp(this.nextLog)*Math.tan(this.camera.fov*Math.PI/360)/this.canvas.clientHeight;const right=new THREE.Vector3().setFromMatrixColumn(this.camera.matrix,0);const up=new THREE.Vector3().setFromMatrixColumn(this.camera.matrix,1);this.goal.addScaledVector(right,-dx*scale).addScaledVector(up,dy*scale);this.goal.x=clamp(this.goal.x,-15,15);this.goal.y=clamp(this.goal.y,-1,12);this.goal.z=clamp(this.goal.z,-15,15);}
+  move(e){const previous=this.pointers.get(e.pointerId);if(!previous)return;const dx=e.clientX-previous.x,dy=e.clientY-previous.y;if(this.pointers.size===2){const other=[...this.pointers.entries()].find(([id])=>id!==e.pointerId)[1];const before=Math.hypot(previous.x-other.x,previous.y-other.y);const after=Math.hypot(e.clientX-other.x,e.clientY-other.y);if(before>5&&after>5)this.nextLog=clamp(this.nextLog+Math.log(before/after),Math.log(.7),Math.log(140));this.pan(dx*.5,dy*.5);}else if(this.panMode||e.shiftKey)this.pan(dx,dy);else{this.nextTheta-=dx*.006;this.nextPhi=clamp(this.nextPhi-dy*.005,.12,Math.PI*.487);}this.pointers.set(e.pointerId,{x:e.clientX,y:e.clientY});}
+  update(dt){const a=1-Math.exp(-12*dt);this.theta+=(this.nextTheta-this.theta)*a;this.phi+=(this.nextPhi-this.phi)*a;this.logRadius+=(this.nextLog-this.logRadius)*a;this.target.lerp(this.goal,a);const r=Math.exp(this.logRadius);this.camera.position.set(this.target.x+r*Math.sin(this.phi)*Math.sin(this.theta),this.target.y+r*Math.cos(this.phi),this.target.z+r*Math.sin(this.phi)*Math.cos(this.theta));this.camera.lookAt(this.target);}
+}

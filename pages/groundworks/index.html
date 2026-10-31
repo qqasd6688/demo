@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#eeece5">
+  <meta name="description" content="方寸之间，城市生长。在实木工作桌上的体素工地，观察机械协作、昼夜更替与骤雨来临。完全本地生成的微缩世界。">
+  <title>方寸工地 GROUNDWORKS · 桌上的建造时光</title>
+  <link rel="icon" href="./assets/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./assets/style.css">
+  <script type="module" src="./assets/main.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="m16 2 13 7.5v15L16 32 3 24.5v-15zM3 9.5 16 17l13-7.5M16 17v15M9.5 5.8l13 7.5v7.5"/></svg><span>GROUNDWORKS<small>A MINIATURE CONSTRUCTION WORLD</small></span></div>
+    <nav class="header-links"><span class="edition">桌上造物系列 <b>— 001</b></span><span class="offline-state" id="offline-state"><i></i> 本地运行</span><button id="help" class="icon-button" aria-label="操作指南" title="操作指南">?</button></nav>
+  </header>
+
+  <main id="experience">
+    <div id="stage"><canvas id="world" aria-label="可旋转缩放的体素建筑工地沙盘" tabindex="0"></canvas></div>
+    <div class="scene-vignette" aria-hidden="true"></div>
+    <section class="intro">
+      <div class="eyebrow"><span></span> SMALL WORLD. BIG AMBITIONS.</div>
+      <h1>方寸工地<span>桌上的建造时光</span></h1>
+      <p>把一座城市的生长，<br>放在你的工作桌上。</p>
+      <div class="intro-rule"></div>
+      <div class="site-meta"><span>沙盘档案</span><b>NO. 001 / 建造中</b></div>
+      <div class="site-meta"><span>场景比例</span><b>1 : 48</b></div>
+      <div class="site-meta"><span>观察方式</span><b id="view-label">第三人称 · 自由观察</b></div>
+      <button id="focus-toggle" class="focus-toggle" aria-pressed="false">进入沉浸模式 <span>↗</span></button>
+    </section>
+
+    <div class="weather-caption"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 1v3m0 16v3M1 12h3m16 0h3M4 4l2 2m12 12 2 2M4 20l2-2M18 6l2-2"/></svg><span id="weather-caption">晴朗 · 日光正好</span><span class="weather-divider"></span><span id="temperature">26°C</span></div>
+    <aside class="view-tools" aria-label="视角工具">
+      <button id="reset-view" title="复位视角" aria-label="复位视角"><svg viewBox="0 0 24 24"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9zM4 7.5 12 12l8-4.5M12 12v9"/></svg></button>
+      <button id="orbit" title="自动环绕" aria-label="自动环绕" aria-pressed="false"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="12" rx="10" ry="5"/><path d="m17 3 4 5-6 1M12 7v10"/></svg></button>
+      <span></span>
+      <button id="zoom-in" title="放大" aria-label="放大"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
+      <button id="zoom-out" title="缩小" aria-label="缩小"><svg viewBox="0 0 24 24"><path d="M5 12h14"/></svg></button>
+    </aside>
+
+    <aside class="activity-panel">
+      <div class="panel-heading"><span><i class="live-dot"></i> 工地进行时</span><span id="activity-count">05 台设备</span></div>
+      <button class="machine-row" data-machine="excavator" aria-pressed="false"><span class="machine-number">01</span><span>履带挖掘机<small id="excavator-status">开挖 · 土方作业</small></span><span class="machine-arrow">↗</span></button>
+      <button class="machine-row" data-machine="truck" aria-pressed="false"><span class="machine-number">02</span><span>渣土运输车<small id="truck-status">待装 · 接运土方</small></span><span class="machine-arrow">↗</span></button>
+      <button class="machine-row" data-machine="crane" aria-pressed="false"><span class="machine-number">03</span><span>塔式起重机<small id="crane-status">起吊 · 结构施工</small></span><span class="machine-arrow">↗</span></button>
+      <button class="machine-row" data-machine="mixer" aria-pressed="false"><span class="machine-number">04</span><span>混凝土搅拌车<small id="mixer-status">搅拌 · 基础浇筑</small></span><span class="machine-arrow">↗</span></button>
+      <button class="machine-row" data-machine="loader" aria-pressed="false"><span class="machine-number">05</span><span>轮式装载机<small id="loader-status">铲运 · 物料转运</small></span><span class="machine-arrow">↗</span></button>
+      <div class="workers-note"><span class="workers-icon">⌘</span> 8 位工人，各司其职 <span class="worker-dot"></span></div>
+    </aside>
+
+    <div class="scene-label"><span class="label-line"></span><span>GROUNDWORKS<br><b>一方土地，无限可能。</b></span></div>
+    <div class="scene-hint"><svg viewBox="0 0 16 20" aria-hidden="true"><rect x="3" y="1" width="10" height="17" rx="5"/><path d="M8 1v6"/></svg><span>拖拽旋转 <i>·</i> 滚轮缩放 <i>·</i> 点击设备跟随</span></div>
+
+    <section class="control-deck" aria-label="沙盘控制台">
+      <div class="playback"><button id="pause" aria-label="暂停施工" aria-pressed="false"><svg id="pause-icon" viewBox="0 0 24 24"><path d="M8 6v12M16 6v12"/></svg></button><div><b id="run-label">世界正在建造</b><span id="day-count">第 01 天 <i>·</i> 时间流动中</span></div><button id="speed" aria-label="切换模拟速度，当前1倍">1×</button></div>
+      <div class="time-control"><div class="control-title"><span>光阴流转 <small>TIME OF DAY</small></span><output id="clock" for="time">10:00</output></div><input id="time" type="range" min="0" max="23.99" step="0.01" value="10" aria-label="时间"><div class="time-marks"><button data-hour="6" title="清晨 06:00">06:00</button><button data-hour="12" title="正午 12:00">12:00</button><button data-hour="18" title="黄昏 18:00">18:00</button><button data-hour="0" title="午夜 00:00">00:00</button></div></div>
+      <div class="weather-control"><div class="control-title"><span>天气实验 <small>WEATHER</small></span></div><div class="weather-buttons"><button data-weather="sunny" aria-pressed="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 1v3m0 16v3M1 12h3m16 0h3M4 4l2 2m12 12 2 2M4 20l2-2M18 6l2-2"/></svg>晴天</button><button data-weather="overcast" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M6 18a4 4 0 0 1-1-8 6 6 0 0 1 12-1 4.5 4.5 0 1 1 1 9Z"/></svg>阴天</button><button data-weather="storm" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M5 14a4 4 0 0 1 0-8 6 6 0 0 1 11 0 4 4 0 1 1 2 8M7 17l-2 4m7-4-2 4m7-4-2 4"/></svg>暴雨</button></div></div>
+    </section>
+    <footer class="footer"><span>每一块体素，都在认真建造。</span><span>PROCEDURAL WORLD <i>·</i> FULLY OFFLINE</span></footer>
+    <div class="loading" id="loading" role="status"><div class="loading-blocks"><i></i><i></i><i></i></div><b>正在搭建这一方世界</b><span>铺设土地 · 唤醒机械 · 点亮日光</span></div>
+    <div class="error-state" id="error-state" hidden><h2>沙盘暂时无法启动</h2><p id="error-message"></p><button id="retry">重新加载</button></div>
+    <button id="exit-focus" hidden>↙ 退出沉浸</button>
+    <div id="toast" role="status"></div>
+  </main>
+  <dialog id="guide"><button id="close-guide" aria-label="关闭操作指南">×</button><span class="eyebrow">FIELD NOTES / 001</span><h2>走近这座小小工地。</h2><p>鼠标拖动旋转视角，滚轮缩放；触屏单指旋转，双指缩放。点击左侧设备，可近距离跟随作业。</p><dl><dt>空格</dt><dd>暂停 / 继续整个世界</dd><dt>R</dt><dd>回到初始视角</dd><dt>F</dt><dd>进入 / 退出沉浸模式</dd><dt>Esc</dt><dd>退出沉浸或关闭指南</dd></dl><p class="guide-note">一昼夜约 4 分钟。晴雨可随时切换，暴雨中设备自动减速，塔吊避风停机。页面完成离线缓存后，即使断网也可重新打开。</p><button id="start-exploring">开始观察 ↗</button></dialog>
+</body>
+</html>

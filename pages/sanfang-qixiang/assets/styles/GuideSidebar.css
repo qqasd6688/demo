@@ -1,0 +1,357 @@
+:where(.sanfang-page) .intro p {
+  font-size: 12px;
+  line-height: 1.9;
+  color: var(--muted);
+  margin: 0;
+}
+:where(.sanfang-page) .intro-stats strong {
+  font:
+    25px Georgia,
+    serif;
+  font-weight: 400;
+}
+:where(.sanfang-page) .intro-stats span {
+  font-size: 10px;
+  margin-left: 7px;
+  color: var(--muted);
+}
+:where(.sanfang-page) .search-box .icon {
+  width: 16px;
+  height: 16px;
+  color: var(--muted);
+}
+:where(.sanfang-page) .search-box input {
+  border: 0;
+  background: transparent;
+  width: 100%;
+  min-width: 0;
+  color: var(--ink);
+  font-size: 12px;
+  outline: none;
+}
+:where(.sanfang-page) .search-box:focus-within {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px #923f3212;
+}
+:where(.sanfang-page) .search-box input::placeholder {
+  color: #817b72;
+}
+:where(.sanfang-page) .clear-search .icon {
+  width: 14px;
+  height: 14px;
+}
+:where(.sanfang-page) .filter:hover:not([aria-pressed='true']) {
+  background: var(--soft);
+}
+:where(.sanfang-page) .list-heading strong {
+  font-weight: 500;
+  font-size: 12px;
+  color: var(--ink);
+}
+:where(.sanfang-page) .place {
+  transition: background 0.18s;
+}
+:where(.sanfang-page) .place[aria-pressed='true'] .place-index {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+:where(.sanfang-page) .place .arrow {
+  width: 15px;
+  height: 15px;
+  color: var(--muted);
+}
+:where(.sanfang-page) .detail-close .icon {
+  width: 14px;
+  height: 14px;
+}
+:where(.sanfang-page) .detail h2 {
+  font-size: 24px;
+  line-height: 1.45;
+  letter-spacing: 1px;
+  font-weight: 500;
+  margin: 14px 0 7px;
+}
+:where(.sanfang-page) .fly-button .icon {
+  width: 14px;
+  height: 14px;
+}
+.sanfang-page[data-theme='night'] .filter[aria-pressed='true'],
+.sanfang-page[data-theme='night'] .fly-button {
+  color: #292321;
+}
+.sanfang-page[data-theme='night'] .search-box {
+  background: #303034;
+}
+.sanfang-page[data-theme='night'] .place[aria-pressed='true'] {
+  background: #403630;
+  border-color: #836653;
+}
+.sanfang-page[data-theme='night'] .place-index {
+  background: #ffffff04;
+}
+:where(.sanfang-page) {
+  --sidebar-width: 316px;
+}
+:where(.sanfang-page) .sidebar {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: var(--sidebar-width);
+}
+@media (min-width: 1600px) {
+  :where(.sanfang-page) {
+    --sidebar-width: 348px;
+  }
+  :where(.sanfang-page) .intro {
+    padding: 34px 31px 26px;
+  }
+  :where(.sanfang-page) .search-area {
+    padding-left: 27px;
+    padding-right: 27px;
+  }
+  :where(.sanfang-page) .place {
+    padding: 17px 15px;
+  }
+  :where(.sanfang-page) .place-name {
+    font-size: 13px;
+  }
+  :where(.sanfang-page) .list-heading {
+    padding-left: 31px;
+    padding-right: 31px;
+  }
+  :where(.sanfang-page) .intro h1 {
+    font-size: 36px;
+  }
+  :where(.sanfang-page) .detail {
+    padding: 29px 30px 23px;
+  }
+  :where(.sanfang-page) .detail-description {
+    font-size: 12px;
+    line-height: 2;
+  }
+  :where(.sanfang-page) .list-scroll {
+    padding-left: 17px;
+    padding-right: 17px;
+  }
+}
+@media (max-height: 800px) and (min-width: 781px) {
+  :where(.sanfang-page) .intro {
+    padding-top: 18px;
+    padding-bottom: 16px;
+  }
+  :where(.sanfang-page) .intro h1 {
+    font-size: 27px;
+    margin-top: 10px;
+    line-height: 1.45;
+  }
+  :where(.sanfang-page) .intro-stats {
+    margin-top: 12px;
+    padding-top: 10px;
+  }
+  :where(.sanfang-page) .place {
+    padding-top: 11px;
+    padding-bottom: 11px;
+  }
+  :where(.sanfang-page) .detail {
+    padding-top: 15px;
+    padding-bottom: 14px;
+  }
+  :where(.sanfang-page) .detail h2 {
+    font-size: 21px;
+  }
+  :where(.sanfang-page) .detail-description {
+    font-size: 10px;
+  }
+  :where(.sanfang-page) .search-area {
+    padding-bottom: 12px;
+  }
+}
+@media (max-width: 1100px) {
+  :where(.sanfang-page) {
+    --sidebar-width: 278px;
+  }
+  :where(.sanfang-page) .intro {
+    padding: 23px 22px 20px;
+  }
+  :where(.sanfang-page) .intro h1 {
+    font-size: 28px;
+  }
+}
+@media (max-width: 780px) {
+  :where(.sanfang-page) {
+    --sidebar-width: 100%;
+    --sidebar-height: 223px;
+  }
+  :where(.sanfang-page) .sidebar {
+    top: auto;
+    height: var(--sidebar-height);
+    border-right: 0;
+    border-top: 1px solid var(--line);
+    padding-top: 13px;
+  }
+  :where(.sanfang-page) .intro {
+    display: none;
+  }
+  :where(.sanfang-page) .search-area {
+    padding: 0 16px 10px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  :where(.sanfang-page) .search-box {
+    height: 35px;
+    flex: 1;
+    min-width: 120px;
+  }
+  :where(.sanfang-page) .filters {
+    margin: 0;
+    gap: 2px;
+  }
+  :where(.sanfang-page) .filter {
+    font-size: 10px;
+    padding: 7px;
+  }
+  :where(.sanfang-page) .list-heading {
+    padding: 0 18px 7px;
+    font-size: 10px;
+  }
+  :where(.sanfang-page) .list-scroll {
+    padding: 0 9px 9px;
+    min-height: 40px;
+  }
+  :where(.sanfang-page) .place-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+  :where(.sanfang-page) .place {
+    padding: 10px 8px;
+    gap: 8px;
+  }
+  :where(.sanfang-page) .place-name {
+    font-size: 11px;
+  }
+  :where(.sanfang-page) .place-meta {
+    font-size: 9px;
+  }
+  :where(.sanfang-page) .place-index {
+    width: 27px;
+    height: 30px;
+    font-size: 12px;
+  }
+  :where(.sanfang-page) .place .arrow {
+    display: none;
+  }
+  :where(.sanfang-page) .detail {
+    padding: 0 17px 11px;
+    margin-bottom: 9px;
+    min-height: 98px;
+  }
+  :where(.sanfang-page) .detail h2 {
+    font-size: 19px;
+    margin: 0 70px 4px 0;
+    position: absolute;
+    top: 0;
+    left: 17px;
+  }
+  :where(.sanfang-page) .detail-top {
+    justify-content: flex-end;
+    height: 24px;
+  }
+  :where(.sanfang-page) .detail-category {
+    display: none;
+  }
+  :where(.sanfang-page) .detail-subtitle {
+    font-size: 9px;
+    margin: 0 0 5px;
+  }
+  :where(.sanfang-page) .detail-description {
+    display: none;
+  }
+  :where(.sanfang-page) .detail-bottom {
+    margin: 0;
+    gap: 8px;
+  }
+  :where(.sanfang-page) .fly-button {
+    padding: 6px 10px;
+    font-size: 10px;
+  }
+  :where(.sanfang-page) .coordinate {
+    margin: 0;
+    font-size: 8px;
+    position: absolute;
+    right: 17px;
+    bottom: 12px;
+  }
+  :where(.sanfang-page) .source-link {
+    display: none;
+  }
+  :where(.sanfang-page) .sidebar:has(.detail:not([hidden])) .list-heading {
+    display: none;
+  }
+  :where(.sanfang-page) .sidebar:has(.detail:not([hidden])) .search-area {
+    padding-bottom: 5px;
+  }
+  :where(.sanfang-page) .sidebar:has(.detail:not([hidden])) .place-meta {
+    display: none;
+  }
+  :where(.sanfang-page) .sidebar:has(.detail:not([hidden])) .place {
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+  :where(.sanfang-page) .sidebar:has(.detail:not([hidden])) .search-box {
+    height: 29px;
+  }
+  :where(.sanfang-page) .sidebar:has(.detail:not([hidden])) .place-index {
+    height: 25px;
+  }
+}
+@media (max-width: 390px) {
+  :where(.sanfang-page) .filters {
+    gap: 0;
+  }
+  :where(.sanfang-page) .filter {
+    padding: 7px 5px;
+  }
+  :where(.sanfang-page) .place-name {
+    font-size: 10px;
+  }
+  :where(.sanfang-page) .search-area {
+    gap: 6px;
+  }
+}
+@media (max-height: 520px) and (min-width: 560px) {
+  :where(.sanfang-page) {
+    --sidebar-width: 250px;
+    --sidebar-height: 0px;
+  }
+  :where(.sanfang-page) .sidebar {
+    top: 0;
+    height: auto;
+    border-top: 0;
+    border-right: 1px solid var(--line);
+  }
+  :where(.sanfang-page) .intro {
+    display: none;
+  }
+  :where(.sanfang-page) .search-area {
+    display: block;
+    padding-top: 12px;
+  }
+  :where(.sanfang-page) .filters {
+    margin-top: 7px;
+  }
+  :where(.sanfang-page) .place-list {
+    display: block;
+  }
+  :where(.sanfang-page) .detail {
+    margin-top: 10px;
+  }
+}
+:where(.sanfang-page) .intro h1 {
+  font-weight: 500;
+}
+:where(.sanfang-page) .intro .eyebrow {
+  color: var(--accent);
+  letter-spacing: 3px;
+}

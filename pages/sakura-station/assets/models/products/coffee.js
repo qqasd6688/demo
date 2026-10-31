@@ -1,0 +1,2 @@
+import {group,cylinder,ring,box} from '../../core/geometry.js';
+export function createCoffee(){const g=group('canned-roast-coffee');cylinder(g,.066,.066,.2,[0,.1,0],0x755c49,14);cylinder(g,.066,.066,.009,[0,.204,0],0xc1c1ad,14);ring(g,.03,.006,[0,.211,0],0x647267);box(g,[.066,.092,.006],[0,.1,.064],0xe4c392,false);box(g,[.045,.016,.007],[0,.12,.067],0x634b3c,false);box(g,[.021,.004,.004],[-.018,.054,.065],0xb3ad91,false);return g;}

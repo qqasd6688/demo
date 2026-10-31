@@ -1,0 +1,102 @@
+[
+  {
+    "name": "stone_floor",
+    "page": "https://polyhaven.com/a/stone_floor",
+    "license": "CC0-1.0",
+    "maps": [
+      {
+        "file": "stone_floor_Diffuse.jpg",
+        "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/stone_floor/stone_floor_diff_1k.jpg",
+        "md5": "6dff94d7c1da0fd034ba714c249ec72f",
+        "bytes": 911345
+      },
+      {
+        "file": "stone_floor_nor_gl.jpg",
+        "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/stone_floor/stone_floor_nor_gl_1k.jpg",
+        "md5": "b75ae5b7f4864be36360c54cdd78bd66",
+        "bytes": 1045705
+      },
+      {
+        "file": "stone_floor_arm.jpg",
+        "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/stone_floor/stone_floor_arm_1k.jpg",
+        "md5": "ab242935d5675669dc57f8ae9b60df81",
+        "bytes": 600846
+      }
+    ]
+  },
+  {
+    "name": "rock_pitted_mossy",
+    "page": "https://polyhaven.com/a/rock_pitted_mossy",
+    "license": "CC0-1.0",
+    "maps": [
+      {
+        "file": "rock_pitted_mossy_Diffuse.jpg",
+        "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/rock_pitted_mossy/rock_pitted_mossy_diff_1k.jpg",
+        "md5": "03b18a8408cda2cd99c08da2b567c6ce",
+        "bytes": 1087680
+      },
+      {
+        "file": "rock_pitted_mossy_nor_gl.jpg",
+        "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/rock_pitted_mossy/rock_pitted_mossy_nor_gl_1k.jpg",
+        "md5": "b59f8349d301c3c3e886acfba561352b",
+        "bytes": 1137508
+      },
+      {
+        "file": "rock_pitted_mossy_arm.jpg",
+        "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/rock_pitted_mossy/rock_pitted_mossy_arm_1k.jpg",
+        "md5": "84f15346d2dbab1d584b62f22c1d9667",
+        "bytes": 774539
+      }
+    ]
+  },
+  {
+    "name": "white_plaster_02",
+    "page": "https://polyhaven.com/a/white_plaster_02",
+    "license": "CC0-1.0",
+    "maps": [
+      {
+        "file": "white_plaster_02_Diffuse.jpg",
+        "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/white_plaster_02/white_plaster_02_diff_1k.jpg",
+        "md5": "7b10c2686bcfd76d1f309a20fd06b57e",
+        "bytes": 527219
+      },
+      {
+        "file": "white_plaster_02_nor_gl.jpg",
+        "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/white_plaster_02/white_plaster_02_nor_gl_1k.jpg",
+        "md5": "55fc03203ebf1dc703a380fde93ff502",
+        "bytes": 652310
+      },
+      {
+        "file": "white_plaster_02_arm.jpg",
+        "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/white_plaster_02/white_plaster_02_arm_1k.jpg",
+        "md5": "4a5a080e2421fac4fa602680bef4c8b1",
+        "bytes": 191017
+      }
+    ]
+  },
+  {
+    "name": "aerial_grass_rock",
+    "page": "https://polyhaven.com/a/aerial_grass_rock",
+    "license": "CC0-1.0",
+    "maps": [
+      {
+        "file": "aerial_grass_rock_Diffuse.jpg",
+        "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/aerial_grass_rock/aerial_grass_rock_diff_1k.jpg",
+        "md5": "e920ce36afd0abff000b8366d3d768d3",
+        "bytes": 666655
+      },
+      {
+        "file": "aerial_grass_rock_nor_gl.jpg",
+        "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/aerial_grass_rock/aerial_grass_rock_nor_gl_1k.jpg",
+        "md5": "c8aa4c4f09b113cc7edef89ddeaccad9",
+        "bytes": 904956
+      },
+      {
+        "file": "aerial_grass_rock_arm.jpg",
+        "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/aerial_grass_rock/aerial_grass_rock_arm_1k.jpg",
+        "md5": "1f37fdb9b46b7fe34932ed9aa77df0bf",
+        "bytes": 216829
+      }
+    ]
+  }
+]

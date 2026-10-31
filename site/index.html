@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="ai demo 作品集。关于自然、空间与交互的一些小小探索，点开一张卡片，走进一个可以亲手体验的世界。" />
+    <meta name="theme-color" content="#f8faf9" />
+    <meta name="color-scheme" content="light" />
+    <title>ai demo · 灵感的另一种形状</title>
+    <link rel="icon" href="./_site/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./_site/style.css" />
+    <script type="module" src="./_site/main.js"></script>
+  </head>
+  <body id="top">
+    <a class="skip-link" href="#works">跳到作品列表</a>
+    <header class="site-header">
+      <div class="header-inner wrap">
+        <a class="brand" href="./" aria-label="ai demo 作品集首页">
+          <span class="brand-symbol" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          <span>ai demo<span class="brand-period">.</span></span>
+        </a>
+        <nav class="site-nav" aria-label="主导航"><a class="is-current" href="#works" aria-current="page">作品集</a><a href="#about">关于这里 <span aria-hidden="true">↗</span></a></nav>
+        <span class="header-note"><i aria-hidden="true"></i> 保持好奇，持续创造</span>
+      </div>
+    </header>
+    <main class="wrap">
+      <section class="intro" aria-labelledby="intro-title">
+        <div class="intro-copy">
+          <p class="eyebrow"><span aria-hidden="true"></span> A COLLECTION OF LITTLE WORLDS</p>
+          <h1 id="intro-title">灵感的另一种<span class="accent">形状<span class="title-dot">。</span></span></h1>
+          <p class="intro-description">把一闪而过的想法，变成触手可及的体验。<br />这里收集了我关于自然、空间与交互的一些探索。</p>
+        </div>
+        <div class="collection-note" aria-label="收录 10 件交互作品">
+          <span class="note-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><path d="M20 5v30M5 20h30M9.4 9.4l21.2 21.2M9.4 30.6 30.6 9.4"/></svg></span>
+          <p>小小的想法，<br />也有自己的世界。</p>
+          <span class="note-caption">10 WORKS & COUNTING</span>
+        </div>
+      </section>
+      <section class="works" id="works" aria-labelledby="works-title">
+        <div class="section-heading"><div><h2 id="works-title">作品一览</h2><span class="total-badge">10</span></div><p class="result-status" id="result-count" role="status" aria-live="polite" aria-atomic="true">共 10 件作品，等你来探索</p></div>
+        <div class="toolbar" data-enhancement hidden>
+          <div class="filters" role="group" aria-label="按作品类型筛选">
+            <button type="button" class="filter is-active" data-filter="all" aria-pressed="true">全部作品 <span>10</span></button>
+            <button type="button" class="filter" data-filter="nature" aria-pressed="false">自然与漫游</button>
+            <button type="button" class="filter" data-filter="space" aria-pressed="false">空间与生活</button>
+            <button type="button" class="filter" data-filter="system" aria-pressed="false">结构与系统</button>
+            <button type="button" class="filter" data-filter="visual" aria-pressed="false">视觉实验</button>
+          </div>
+          <form class="search" role="search">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg>
+            <input type="search" id="work-search" aria-label="搜索作品" placeholder="搜索感兴趣的作品…" autocomplete="off" />
+            <button type="button" id="clear-search" aria-label="清空搜索" hidden>×</button>
+          </form>
+        </div>
+        <!-- 手动维护作品卡片、数量、分类和截图；不扫描 pages，不读取 page.json。 -->
+        <span class="sr-only" id="new-tab-hint">在新页签中打开作品</span>
+        <div class="works-grid" id="works-grid">
+          <article class="work-card" data-category="nature" data-href="./sanfang-qixiang/" data-cover="./sanfang-qixiang/assets/cover.webp" data-keywords="福州 古城 建筑 街巷 文化 三维 漫游">
+            <a class="work-link" href="./sanfang-qixiang/" target="_blank" rel="noopener noreferrer" aria-labelledby="title-sanfang-qixiang" aria-describedby="desc-sanfang-qixiang new-tab-hint">
+              <div class="work-preview"><img src="./sanfang-qixiang/assets/cover.webp" alt="三坊七巷的青瓦街巷与古城漫游界面截图" width="1200" height="675" decoding="async" fetchpriority="high" /><span class="preview-label">新页签打开 <span aria-hidden="true">↗</span></span></div>
+              <div class="work-content">
+                <div class="work-meta"><span><i class="category-dot nature"></i>人文漫游</span><span>01</span></div>
+                <div class="work-heading"><h3 id="title-sanfang-qixiang">三坊七巷</h3><span class="work-arrow" aria-hidden="true">↗</span></div>
+                <p id="desc-sanfang-qixiang">循黛瓦，入深巷。在四时光影里穿行福州古城，细看街巷、院落与百年建筑。</p>
+              </div>
+            </a>
+          </article>
+          <article class="work-card" data-category="nature" data-href="./microcosm/" data-cover="./microcosm/assets/cover.webp" data-keywords="microcosm 生态 自然 山海 岛屿 森林 湖泊 昼夜 三维">
+            <a class="work-link" href="./microcosm/" target="_blank" rel="noopener noreferrer" aria-labelledby="title-microcosm" aria-describedby="desc-microcosm new-tab-hint">
+              <div class="work-preview"><img src="./microcosm/assets/cover.webp" alt="微境的悬浮生态岛、森林与湖泊页面截图" width="1200" height="675" decoding="async" fetchpriority="high" /><span class="preview-label">新页签打开 <span aria-hidden="true">↗</span></span></div>
+              <div class="work-content">
+                <div class="work-meta"><span><i class="category-dot nature"></i>自然世界</span><span>02</span></div>
+                <div class="work-heading"><h3 id="title-microcosm">微境 <span>MICROCOSM</span></h3><span class="work-arrow" aria-hidden="true">↗</span></div>
+                <p id="desc-microcosm">把山海藏进一方微境。在悬浮生态岛上，观察森林、湖泊与缓缓流动的昼夜。</p>
+              </div>
+            </a>
+          </article>
+          <article class="work-card" data-category="space" data-href="./habitat/" data-cover="./habitat/assets/cover.webp" data-keywords="habitat 家居 空间 户型 室内 家具 设计 灯光 三维">
+            <a class="work-link" href="./habitat/" target="_blank" rel="noopener noreferrer" aria-labelledby="title-habitat" aria-describedby="desc-habitat new-tab-hint">
+              <div class="work-preview"><img src="./habitat/assets/cover.webp" alt="栖居的三维室内户型与家居控制界面截图" width="1200" height="675" decoding="async" /><span class="preview-label">新页签打开 <span aria-hidden="true">↗</span></span></div>
+              <div class="work-content">
+                <div class="work-meta"><span><i class="category-dot space"></i>空间生活</span><span>03</span></div>
+                <div class="work-heading"><h3 id="title-habitat">栖居 <span>HABITAT</span></h3><span class="work-arrow" aria-hidden="true">↗</span></div>
+                <p id="desc-habitat">让家，回应你。漫游不同户型，布置家具、替换材质，亲手调节家的光与温度。</p>
+              </div>
+            </a>
+          </article>
+          <article class="work-card" data-category="space" data-href="./groundworks/" data-cover="./groundworks/assets/cover.webp" data-keywords="groundworks 微缩 建造 工地 工程 机械 昼夜 城市 三维">
+            <a class="work-link" href="./groundworks/" target="_blank" rel="noopener noreferrer" aria-labelledby="title-groundworks" aria-describedby="desc-groundworks new-tab-hint">
+              <div class="work-preview"><img src="./groundworks/assets/cover.webp" alt="方寸工地的微缩施工现场与机械作业截图" width="1200" height="675" loading="lazy" decoding="async" /><span class="preview-label">新页签打开 <span aria-hidden="true">↗</span></span></div>
+              <div class="work-content">
+                <div class="work-meta"><span><i class="category-dot space"></i>微缩建造</span><span>04</span></div>
+                <div class="work-heading"><h3 id="title-groundworks">方寸工地</h3><span class="work-arrow" aria-hidden="true">↗</span></div>
+                <p id="desc-groundworks">把城市的生长放在工作桌上。近看机械协作，在昼夜与晴雨中观察一座小小工地。</p>
+              </div>
+            </a>
+          </article>
+          <article class="work-card" data-category="system" data-href="./hydrogen-nexus/" data-cover="./hydrogen-nexus/assets/cover.webp" data-keywords="nexus 能源 氢能 数字孪生 电热冷 工业 系统 三维">
+            <a class="work-link" href="./hydrogen-nexus/" target="_blank" rel="noopener noreferrer" aria-labelledby="title-hydrogen-nexus" aria-describedby="desc-hydrogen-nexus new-tab-hint">
+              <div class="work-preview"><img src="./hydrogen-nexus/assets/cover.webp" alt="氢能中枢的综合能源园区数字孪生与实时数据截图" width="1200" height="675" loading="lazy" decoding="async" /><span class="preview-label">新页签打开 <span aria-hidden="true">↗</span></span></div>
+              <div class="work-content">
+                <div class="work-meta"><span><i class="category-dot system"></i>数字孪生</span><span>05</span></div>
+                <div class="work-heading"><h3 id="title-hydrogen-nexus">氢能中枢 <span>NEXUS</span></h3><span class="work-arrow" aria-hidden="true">↗</span></div>
+                <p id="desc-hydrogen-nexus">走进一座多能协同的能源园区。追踪发光能流，探索电、热、冷与氢的实时平衡。</p>
+              </div>
+            </a>
+          </article>
+          <article class="work-card" data-category="system" data-href="./therma/" data-cover="./therma/assets/cover.webp" data-keywords="therma 结构 家电 洗烘 洗衣机 热泵 机械 拆解 爆炸图 三维">
+            <a class="work-link" href="./therma/" target="_blank" rel="noopener noreferrer" aria-labelledby="title-therma" aria-describedby="desc-therma new-tab-hint">
+              <div class="work-preview"><img src="./therma/assets/cover.webp" alt="THERMA 热泵洗烘一体机三维结构实验室截图" width="1200" height="675" loading="lazy" decoding="async" /><span class="preview-label">新页签打开 <span aria-hidden="true">↗</span></span></div>
+              <div class="work-content">
+                <div class="work-meta"><span><i class="category-dot system"></i>结构探索</span><span>06</span></div>
+                <div class="work-heading"><h3 id="title-therma">THERMA <span>结构实验室</span></h3><span class="work-arrow" aria-hidden="true">↗</span></div>
+                <p id="desc-therma">精密之内，温柔循环。拆开一台热泵洗烘一体机，观察部件结构与动态热泵回路。</p>
+              </div>
+            </a>
+          </article>
+          <article class="work-card" data-category="nature" data-href="./tidal-bay/" data-cover="./tidal-bay/assets/cover.webp" data-keywords="ocean shallows 潮间 海洋 鱼 水母 珊瑚 海豚 海湾 自然 三维">
+            <a class="work-link" href="./tidal-bay/" target="_blank" rel="noopener noreferrer" aria-labelledby="title-tidal-bay" aria-describedby="desc-tidal-bay new-tab-hint">
+              <div class="work-preview"><img src="./tidal-bay/assets/cover.webp" alt="潮间海湾的透明浅海、珊瑚与海洋生物截图" width="1200" height="675" loading="lazy" decoding="async" /><span class="preview-label">新页签打开 <span aria-hidden="true">↗</span></span></div>
+              <div class="work-content">
+                <div class="work-meta"><span><i class="category-dot nature"></i>海洋生态</span><span>07</span></div>
+                <div class="work-heading"><h3 id="title-tidal-bay">潮间海湾</h3><span class="work-arrow" aria-hidden="true">↗</span></div>
+                <p id="desc-tidal-bay">一封来自浅海的信。邀请海洋访客，调节水光潮汐，在珊瑚间偶遇游鱼与水母。</p>
+              </div>
+            </a>
+          </article>
+          <article class="work-card" data-category="nature" data-href="./sakura-station/" data-cover="./sakura-station/assets/cover.webp" data-keywords="sakura station 樱花 春天 车站 日本 街角 便利店 自然 三维">
+            <a class="work-link" href="./sakura-station/" target="_blank" rel="noopener noreferrer" aria-labelledby="title-sakura-station" aria-describedby="desc-sakura-station new-tab-hint">
+              <div class="work-preview"><img src="./sakura-station/assets/cover.webp" alt="樱日小站的樱花树、乡村站台与街角便利店截图" width="1200" height="675" loading="lazy" decoding="async" /><span class="preview-label">新页签打开 <span aria-hidden="true">↗</span></span></div>
+              <div class="work-content">
+                <div class="work-meta"><span><i class="category-dot nature"></i>春日漫游</span><span>08</span></div>
+                <div class="work-heading"><h3 id="title-sakura-station">樱日小站</h3><span class="work-arrow" aria-hidden="true">↗</span></div>
+                <p id="desc-sakura-station">把春日停在街角。绕行樱花、乡村站台与便利店，看晴日、春雨和夕照轮流到来。</p>
+              </div>
+            </a>
+          </article>
+          <article class="work-card" data-category="nature" data-href="./suzhou-garden/" data-cover="./suzhou-garden/assets/cover.webp" data-keywords="tingyu 苏州 园林 建筑 月洞 曲桥 山水 听雨 漫游 自然 三维">
+            <a class="work-link" href="./suzhou-garden/" target="_blank" rel="noopener noreferrer" aria-labelledby="title-suzhou-garden" aria-describedby="desc-suzhou-garden new-tab-hint">
+              <div class="work-preview"><img src="./suzhou-garden/assets/cover.webp" alt="听雨园的苏州园林、曲桥与山水庭院截图" width="1200" height="675" loading="lazy" decoding="async" /><span class="preview-label">新页签打开 <span aria-hidden="true">↗</span></span></div>
+              <div class="work-content">
+                <div class="work-meta"><span><i class="category-dot nature"></i>园林漫游</span><span>09</span></div>
+                <div class="work-heading"><h3 id="title-suzhou-garden">听雨园</h3><span class="work-arrow" aria-hidden="true">↗</span></div>
+                <p id="desc-suzhou-garden">一园山水，半日闲。穿月洞、过曲桥，在粉墙黛瓦与风荷游鱼间，寻一段自在时光。</p>
+              </div>
+            </a>
+          </article>
+          <article class="work-card" data-category="visual" data-href="./interactive-gallery/" data-cover="./interactive-gallery/assets/cover.webp" data-keywords="展厅 原入口 地球 星空 空白 卡片 环绕 视觉 动效 三维">
+            <a class="work-link" href="./interactive-gallery/" target="_blank" rel="noopener noreferrer" aria-labelledby="title-interactive-gallery" aria-describedby="desc-interactive-gallery new-tab-hint">
+              <div class="work-preview"><img src="./interactive-gallery/assets/cover.webp" alt="数字展厅的星空、发光地球与六个空白三维展位截图" width="1200" height="675" loading="lazy" decoding="async" /><span class="preview-label">新页签打开 <span aria-hidden="true">↗</span></span></div>
+              <div class="work-content">
+                <div class="work-meta"><span><i class="category-dot visual"></i>视觉实验</span><span>10</span></div>
+                <div class="work-heading"><h3 id="title-interactive-gallery">数字展厅</h3><span class="work-arrow" aria-hidden="true">↗</span></div>
+                <p id="desc-interactive-gallery">让灵感绕着星球流转。星空、地球与空白展位，在拖拽与环绕中交织成一场光影实验。</p>
+              </div>
+            </a>
+          </article>
+        </div>
+        <div class="empty-state" id="empty-state" hidden><span class="empty-icon" aria-hidden="true">⌕</span><h3>还没有找到这件作品</h3><p>试试其他关键词，或回到全部作品继续探索。</p><button type="button" id="reset-filters">查看全部作品 <span aria-hidden="true">↗</span></button></div>
+        <div class="collection-end"><span></span><p>探索未完，灵感待续 <i aria-hidden="true">✳</i></p><span></span></div>
+      </section>
+    </main>
+    <footer class="site-footer" id="about"><div class="wrap footer-inner"><div><a class="footer-brand" href="#top">ai demo.</a><p>一些好奇，一点创造。用代码记录想象的形状。</p></div><div class="footer-side"><span>MADE WITH CURIOSITY</span><a href="#top">回到顶部 <span aria-hidden="true">↑</span></a></div></div></footer>
+  </body>
+</html>

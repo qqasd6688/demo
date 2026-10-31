@@ -1,0 +1,20 @@
+{
+  "name": "vibe-pages",
+  "version": "1.0.0",
+  "private": true,
+  "description": "独立静态页面合集，发布到 GitHub Pages。",
+  "type": "module",
+  "packageManager": "pnpm@12.14.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "node scripts/build.mjs",
+    "preview": "node scripts/build.mjs && vite preview",
+    "test": "node --test scripts/*.test.mjs site/tests/*.test.mjs pages/*/tests/*.test.mjs"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "devDependencies": {
+    "vite": "8.3.5"
+  }
+}

@@ -1,0 +1,10 @@
+import {group,box,pane,cylinder,chips,place} from '../core/geometry.js';
+import {sign} from '../core/textures.js';
+import {paint} from '../core/materials.js';
+import {createRamune} from './products/ramune.js';
+import {createGreenTea} from './products/green-tea.js';
+import {createCoffee} from './products/coffee.js';
+import {createOrangeSoda} from './products/orange-soda.js';
+import {createCola} from './products/cola.js';
+export function createVendingMachine(){const g=group('glass-front-drink-vending-machine');box(g,[1.17,2.14,.08],[0,1.15,-.34],0xcbd9bf);for(const x of [-.55,.55])box(g,[.08,2.14,.74],[x,1.15,0],0xcbd9bf);box(g,[1.17,.65,.74],[0,.4,0],0xcbd9bf);box(g,[1.17,.14,.74],[0,2.17,0],0xcbd9bf);box(g,[1.22,.09,.79],[0,2.25,0],0xe4e4cd);box(g,[.92,1.32,.08],[-.08,1.45,.12],0x3d625e);for(const x of [-.54,.41])box(g,[.055,1.42,.22],[x,1.44,.32],0xf0ecd8);box(g,[.96,.065,.23],[-.07,2.12,.32],0xe9e5d2);for(let row=0;row<3;row++){const y=.87+row*.41;box(g,[.89,.035,.31],[-.065,y,.29],0xd0dbc7);const products=[createRamune,createGreenTea,createOrangeSoda,createCoffee,createCola];for(let col=0;col<5;col++){const drink=products[(col+row)%5]();drink.scale.setScalar(.86);place(g,drink,[-.43+col*.18,y+.024,.28]);cylinder(g,.034,.034,.02,[-.43+col*.18,y-.07,.487],paint(0xdee6cb,{emissive:0x759e6a,emissiveIntensity:.16}),10).rotation.x=Math.PI/2;}box(g,[.87,.095,.07],[-.07,y-.065,.438],0xa1ba9d);}
+  pane(g,[.87,1.19,.018],[-.065,1.49,.47]);box(g,[.018,1.22,.022],[-.5,1.48,.49],0xa6beb2);box(g,[.022,.48,.035],[.39,1.42,.5],0xf2e9d0);box(g,[.1,.27,.03],[.5,1.21,.41],0x637f6d);box(g,[.048,.012,.015],[.5,1.27,.432],0x263e36);box(g,[.06,.05,.018],[.5,1.17,.436],0xa39b76);box(g,[.82,.23,.1],[-.06,.44,.39],0x41675c);box(g,[.75,.08,.15],[-.06,.38,.46],0x9fb49b);sign(g,'冷たい飲みもの',.92,.16,[-.05,2.17,.415],{bg:'#e8e4ce',fg:'#54836e'});for(let i=0;i<8;i++)box(g,[.42,.017,.012],[.19,.16+i*.025,.38],0x8b9b7e,false);chips(g,-.38,.31,.39,.3,.22,0x9c9376,8);chips(g,.5,.85,.39,.07,.36,0xaa8668,4);for(const x of [-.43,.43])box(g,[.16,.1,.5],[x,.05,0],0x66715c);return g;}

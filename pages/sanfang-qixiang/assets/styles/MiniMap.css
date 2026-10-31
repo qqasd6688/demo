@@ -1,0 +1,34 @@
+:where(.sanfang-page) .compass span {
+  font:
+    10px Georgia,
+    serif;
+  letter-spacing: 1px;
+}
+:where(.sanfang-page) .compass svg {
+  width: 28px;
+  height: 28px;
+  overflow: visible;
+}
+:where(.sanfang-page) .mini-map {
+  display: block;
+  width: 100%;
+  height: auto;
+  cursor: crosshair;
+}
+@media (max-width: 760px), (max-height: 650px) {
+  :where(.sanfang-page) .mini-panel {
+    top: auto;
+    right: auto;
+    left: 12px;
+    bottom: 14px;
+    width: 154px;
+  }
+  :where(.sanfang-page) .compass {
+    width: 33px;
+    height: 30px;
+  }
+  :where(.sanfang-page) .compass svg {
+    width: 24px;
+    height: 24px;
+  }
+}

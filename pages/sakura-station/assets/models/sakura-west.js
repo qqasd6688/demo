@@ -1,0 +1,3 @@
+import {group,beam,cylinder,box} from '../core/geometry.js';
+import {blossomCrown,moss} from '../core/botany.js';
+export function createWestSakura(){const g=group('old-sakura-west');cylinder(g,.72,.8,.18,[0,.09,0],0xb6b49b,12);cylinder(g,.68,.68,.025,[0,.19,0],0x929878,12);const trunk=[[0,.2,0],[-.12,1.1,.04],[.02,2.15,-.1],[-.18,3.22,-.05]];for(let i=0;i<3;i++)beam(g,trunk[i],trunk[i+1],.17-i*.032,0x7e7861,9);const ends=[[-1.07,3.1,.35],[.91,3.35,.3],[-.73,3.95,-.2],[.55,4.2,-.65],[.08,4.55,.24]];ends.forEach((p,i)=>{const start=i<2?trunk[2]:trunk[3];beam(g,start,p,.065,0x82775f,8);blossomCrown(g,p,i<2?.92:1.04,i+1);});for(let i=0;i<7;i++){const a=i*1.7;beam(g,[0,.35,0],[Math.sin(a)*.42,.2,Math.cos(a)*.42],.043,0x8a8165,7);}moss(g,0,0,.4);return g;}

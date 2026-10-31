@@ -1,0 +1,2 @@
+import {group,box,beam,chips} from '../core/geometry.js';
+export function createBench(){const g=group('weathered-wood-bench');for(const x of [-.65,.65]){beam(g,[x,.05,-.15],[x,.43,-.15],.035,0x546e5d);beam(g,[x,.05,.2],[x,.43,.2],.035,0x546e5d);beam(g,[x,.35,-.15],[x,.91,-.28],.032,0x546e5d);}for(let i=0;i<4;i++)box(g,[1.75,.055,.1],[0,.45,-.18+i*.12],i%2?0xb5956c:0xc1a379);for(const y of [.67,.83]){const p=box(g,[1.75,.12,.055],[0,y,-.24-(y-.67)*.22],0xbea076);p.rotation.x=-.2;chips(g,0,y,-.2-(y-.67)*.22,1.6,.1,0x927e5e,6);}return g;}

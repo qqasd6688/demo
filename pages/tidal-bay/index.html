@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#176c7c">
+  <meta name="description" content="潮间 · 浅海来信。俯瞰有珊瑚、海龟、蝠鲼、水母和银色鱼群的热带海湾，在指尖唤起涟漪，放入一位新的海洋访客。">
+  <title>Ocean Shallows · 潮间，浅海来信</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="./assets/style.css">
+  <script type="module" src="./assets/main.js"></script>
+</head>
+<body>
+  <main aria-label="可交互的热带浅海生态">
+    <canvas id="bay" tabindex="0" aria-label="热带海湾：点击水面泛起涟漪，点击海洋生物与它互动；空格暂停，回车投下涟漪，滚轮或加减键近观，0 恢复全景。"></canvas>
+    <div id="loading" aria-label="正在生成浅海" role="status"><span class="loading-ring"></span><span>一片海，正在醒来</span></div>
+    <header class="wordmark interface"><div class="brand-kicker"><span></span> 潮间 · 浅海来信</div><h1>Ocean Shallows</h1><p>A LITTLE OCEAN, ALIVE AT YOUR FINGERTIPS</p><div id="population-count">正在唤醒海洋访客</div></header>
+    <div class="corner-note interface"><span>21° 18′ N &nbsp; 157° 51′ W</span><p>日光落入海面，万物在此相遇。</p><span class="live-dot"></span><span>热带浅海 · 自在生长</span></div>
+    <aside id="settings-panel" class="settings-panel interface" aria-label="海湾参数">
+      <div class="panel-heading"><div><span class="eyebrow">MAKE IT YOUR OCEAN</span><h2>海湾 · 参数</h2></div><button id="panel-close" type="button" class="icon-button" aria-label="收起参数面板">×</button></div>
+      <div class="panel-content">
+        <div class="intro-settings"><label class="check-label"><input type="checkbox" data-setting="intro"> 开场，缓缓入海</label><button class="quiet-button" id="replay-intro" type="button">↺ 重看开场</button></div>
+        <p class="panel-copy">让光更柔，让浪更轻。<br>调成你想停留的那片海。</p>
+        <section><h3>水光与潮汐 <span>01</span></h3>
+          <label class="range-label">水面反光 <output>0.80</output><input aria-label="水面反光" data-setting="glare" type="range" min="0" max="1.7" step=".05"></label>
+          <label class="range-label">波浪起伏 <output>0.65</output><input aria-label="波浪起伏" data-setting="waves" type="range" min="0" max="1.5" step=".05"></label>
+          <label class="range-label">水下焦散 <output>1.10</output><input aria-label="水下焦散" data-setting="caustics" type="range" min="0" max="2" step=".05"></label>
+          <label class="range-label">指尖涟漪 <output>0.80</output><input aria-label="指尖涟漪" data-setting="ripple" type="range" min=".1" max="1.5" step=".05"></label>
+        </section>
+        <section><h3>海里的生活 <span>02</span></h3>
+          <label class="range-label">鱼群数量 <output>164</output><input aria-label="鱼群数量" data-setting="population" type="range" min="40" max="280" step="4"></label>
+          <label class="range-label">珊瑚丰茂 <output>0.85</output><input aria-label="珊瑚丰茂" data-setting="reef" type="range" min="0" max="1" step=".05"></label>
+          <label class="range-label">游动节奏 <output>0.80</output><input aria-label="游动节奏" data-setting="speed" type="range" min=".2" max="1.8" step=".05"></label>
+        </section>
+        <section><h3>偶遇一场 <span>03</span></h3><div class="event-grid"><button type="button" data-event="migration">鱼群穿境 <span>↝</span></button><button type="button" data-event="dolphin">海豚跃水 <span>⌁</span></button><button type="button" data-event="storm">海风掠过 <span>≈</span></button></div></section>
+        <div class="panel-footer"><span id="save-status">设置会自动保存</span><button type="button" id="reset-settings">恢复初始</button></div>
+      </div>
+    </aside>
+    <section class="creature-tray interface" aria-label="添加海洋生物"><div class="tray-caption"><span>邀一位海洋访客</span><span>点击添加 · 拖入水面</span></div><div class="species-dock" id="species-dock"></div></section>
+    <div class="view-controls"><button id="motion" type="button" class="icon-button" aria-label="暂停动画" aria-pressed="false" title="暂停 / 继续 · Space"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6v12M15 6v12"/></svg></button><button id="immersive" class="icon-button" type="button" aria-label="纯观景模式" aria-pressed="false" title="收起界面"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4H4v4m12-4h4v4M4 16v4h4m12-4v4h-4"/></svg></button><button id="settings-toggle" type="button" aria-controls="settings-panel" aria-expanded="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 17h16M9 4v6m6 4v6"/></svg><span>参数调节</span></button></div>
+    <p id="announcement" role="status" aria-live="polite"></p>
+    <div id="error" role="alert" hidden><p>海湾暂时未能展开，请刷新重试。<br>需要支持 WebGL 2 的浏览器。</p><button type="button" id="retry">重新打开</button></div>
+  </main>
+</body>
+</html>

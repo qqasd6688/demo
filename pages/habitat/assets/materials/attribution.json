@@ -1,0 +1,227 @@
+{
+  "provider": "Poly Haven and ambientCG",
+  "license": "CC0-1.0",
+  "licenseUrl": "https://polyhaven.com/license",
+  "licenseDeed": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "retrievedAt": "2026-10-31",
+  "notes": "Local PBR assets. Poly Haven texture dimensions are source-reported; the 3 m repeat chosen for Marble012 is an artistic scale. No external requests at runtime.",
+  "assets": [
+    {
+      "key": "floor",
+      "id": "wood_floor",
+      "name": "Wood Floor",
+      "source": "https://polyhaven.com/a/wood_floor",
+      "authors": {
+        "Dimitrios Savva": "All"
+      },
+      "dimensionsMeters": [
+        1.7,
+        1.7
+      ],
+      "maps": {
+        "color": {
+          "file": "floor_color.jpg",
+          "bytes": 734493,
+          "md5": "b7e927d2bf2f8f103820ff3890c8407c",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/wood_floor/wood_floor_diff_1k.jpg",
+          "colorSpace": "sRGB",
+          "resolution": "1k"
+        },
+        "normal": {
+          "file": "floor_normal.jpg",
+          "bytes": 423303,
+          "md5": "620f174d2c09b579c5d02d37b2106668",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/wood_floor/wood_floor_nor_gl_1k.jpg",
+          "colorSpace": "linear",
+          "resolution": "1k"
+        },
+        "roughness": {
+          "file": "floor_roughness.jpg",
+          "bytes": 527754,
+          "md5": "36146634f1dbd1bc30cd071857584c10",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/wood_floor/wood_floor_rough_1k.jpg",
+          "colorSpace": "linear",
+          "resolution": "1k"
+        }
+      }
+    },
+    {
+      "key": "walnut",
+      "id": "american_walnut_veneer",
+      "name": "American Walnut Veneer",
+      "source": "https://polyhaven.com/a/american_walnut_veneer",
+      "authors": {
+        "Jenelle van Heerden": "All"
+      },
+      "dimensionsMeters": [
+        1,
+        1
+      ],
+      "maps": {
+        "color": {
+          "file": "walnut_color.jpg",
+          "bytes": 579182,
+          "md5": "748b39ed2ba9dce314104055f18837f0",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/american_walnut_veneer/american_walnut_veneer_diff_1k.jpg",
+          "colorSpace": "sRGB",
+          "resolution": "1k"
+        },
+        "normal": {
+          "file": "walnut_normal.jpg",
+          "bytes": 414945,
+          "md5": "4bd673f87d8aef1fcce85625d748fa0e",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/american_walnut_veneer/american_walnut_veneer_nor_gl_1k.jpg",
+          "colorSpace": "linear",
+          "resolution": "1k"
+        },
+        "roughness": {
+          "file": "walnut_roughness.jpg",
+          "bytes": 691712,
+          "md5": "d9fa24afc4790122e9ba3c535af8b615",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/american_walnut_veneer/american_walnut_veneer_rough_1k.jpg",
+          "colorSpace": "linear",
+          "resolution": "1k"
+        }
+      }
+    },
+    {
+      "key": "oak",
+      "id": "white_oak_veneer",
+      "name": "White Oak Veneer",
+      "source": "https://polyhaven.com/a/white_oak_veneer",
+      "authors": {
+        "Jenelle van Heerden": "All"
+      },
+      "dimensionsMeters": [
+        0.5,
+        0.5
+      ],
+      "maps": {
+        "color": {
+          "file": "oak_color.jpg",
+          "bytes": 595257,
+          "md5": "4ac6f031704bdc243f71cc61d692f823",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/white_oak_veneer/white_oak_veneer_diff_1k.jpg",
+          "colorSpace": "sRGB",
+          "resolution": "1k"
+        },
+        "normal": {
+          "file": "oak_normal.jpg",
+          "bytes": 623607,
+          "md5": "ce3dc086c58f50ba47c026a58d03fcbd",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/white_oak_veneer/white_oak_veneer_nor_gl_1k.jpg",
+          "colorSpace": "linear",
+          "resolution": "1k"
+        },
+        "roughness": {
+          "file": "oak_roughness.jpg",
+          "bytes": 520649,
+          "md5": "ae2a746fc106f6eb0f90c92d49bd7643",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/white_oak_veneer/white_oak_veneer_rough_1k.jpg",
+          "colorSpace": "linear",
+          "resolution": "1k"
+        }
+      }
+    },
+    {
+      "key": "fabric",
+      "id": "cotton_jersey",
+      "name": "Cotton Jersey",
+      "source": "https://polyhaven.com/a/cotton_jersey",
+      "authors": {
+        "colormass": "Photography",
+        "Rico Cilliers": "Processing"
+      },
+      "dimensionsMeters": [
+        0.264,
+        0.264
+      ],
+      "maps": {
+        "color": {
+          "file": "fabric_color.jpg",
+          "bytes": 581360,
+          "md5": "d2f4493fdd48634b50d40f810ce9deb7",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/cotton_jersey/cotton_jersey_diff_1k.jpg",
+          "colorSpace": "sRGB",
+          "resolution": "1k"
+        },
+        "normal": {
+          "file": "fabric_normal.jpg",
+          "bytes": 678670,
+          "md5": "2dcc9dda3b726477f607c808e52f1833",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/cotton_jersey/cotton_jersey_nor_gl_1k.jpg",
+          "colorSpace": "linear",
+          "resolution": "1k"
+        },
+        "roughness": {
+          "file": "fabric_roughness.jpg",
+          "bytes": 865264,
+          "md5": "ac691d215d3aca34dcd6ea2d03937286",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/cotton_jersey/cotton_jersey_rough_1k.jpg",
+          "colorSpace": "linear",
+          "resolution": "1k"
+        }
+      }
+    },
+    {
+      "key": "environment",
+      "id": "studio_small_09",
+      "name": "Studio Small 09",
+      "source": "https://polyhaven.com/a/studio_small_09",
+      "authors": {
+        "Sergej Majboroda": "All"
+      },
+      "maps": {
+        "radiance": {
+          "file": "studio_1k.hdr",
+          "bytes": 1615248,
+          "md5": "d5d7eb9d26d341d6aa4d11c1a54fd97c",
+          "url": "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/studio_small_09_1k.hdr",
+          "colorSpace": "linear",
+          "resolution": [
+            1024,
+            512
+          ],
+          "projection": "equirectangular"
+        }
+      }
+    },
+    {
+      "key": "marble",
+      "id": "Marble012",
+      "name": "Marble 012",
+      "provider": "ambientCG",
+      "authors": {
+        "Lennart Demes": "Procedural material"
+      },
+      "source": "https://ambientcg.com/view?id=Marble012",
+      "download": "https://ambientcg.com/get?file=Marble012_2K-JPG.zip",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://docs.ambientcg.com/license/",
+      "repeatMeters": 3,
+      "maps": {
+        "color": {
+          "file": "marble_color.jpg",
+          "bytes": 5139092,
+          "sha256": "1e1ef2d556dcda237181590b4a7543a66ea49223ccf2d455000e05f37e8a8ec5",
+          "colorSpace": "sRGB",
+          "resolution": "2k"
+        },
+        "normal": {
+          "file": "marble_normal.jpg",
+          "bytes": 1418258,
+          "sha256": "0e295859c9e55ba2dd147aed37a674aba90decaf91d3622d5aa8386441020649",
+          "colorSpace": "linear",
+          "resolution": "2k"
+        },
+        "roughness": {
+          "file": "marble_roughness.jpg",
+          "bytes": 2166701,
+          "sha256": "d4a906a9739f30f386914a8b8393e64100f340851dc50328e5b91e24fa95ce7a",
+          "colorSpace": "linear",
+          "resolution": "2k"
+        }
+      }
+    }
+  ]
+}

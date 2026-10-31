@@ -1,0 +1,22 @@
+:where(.sanfang-page) .loading h2 {
+  font-size: 25px;
+  font-weight: 500;
+  letter-spacing: 5px;
+  margin: 22px 0 12px;
+}
+:where(.sanfang-page) .loading p {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.9;
+  max-width: 350px;
+}
+:where(.sanfang-page) .loader-mark {
+  transform: rotate(45deg);
+}
+:where(.sanfang-page) .loader-mark::after {
+  content: '';
+  position: absolute;
+  inset: 7px;
+  border: 1px solid #938574;
+  animation: sfq-breathe 1.6s ease-in-out infinite;
+}

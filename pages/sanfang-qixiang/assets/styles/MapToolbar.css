@@ -1,0 +1,51 @@
+:where(.sanfang-page) .tool::after {
+  content: attr(data-tip);
+  position: absolute;
+  right: 51px;
+  font-size: 11px;
+  white-space: nowrap;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 4px;
+  padding: 7px 9px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(3px);
+  transition: 0.15s;
+}
+:where(.sanfang-page) .tool:hover::after,
+:where(.sanfang-page) .tool:focus-visible::after {
+  opacity: 1;
+  transform: none;
+}
+@media (max-width: 780px) {
+  :where(.sanfang-page) .toolbar {
+    right: 12px;
+    top: 14px;
+    padding: 4px;
+  }
+  :where(.sanfang-page) .tool {
+    width: 33px;
+    height: 33px;
+  }
+  :where(.sanfang-page) .tool .icon {
+    width: 17px;
+    height: 17px;
+  }
+  :where(.sanfang-page) .tool::after {
+    right: 43px;
+  }
+}
+@media (max-height: 520px) and (min-width: 560px) {
+  :where(.sanfang-page) .toolbar {
+    top: 14px;
+  }
+  :where(.sanfang-page) .tool {
+    width: 31px;
+    height: 31px;
+  }
+  :where(.sanfang-page) .tool-divider {
+    margin-top: 2px;
+    margin-bottom: 2px;
+  }
+}

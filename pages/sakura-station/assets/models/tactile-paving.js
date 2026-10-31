@@ -1,0 +1,2 @@
+import {group,box,cylinder} from '../core/geometry.js';
+export function createTactilePaving(){const g=group('geometric-yellow-tactile-paving');for(let i=0;i<15;i++){box(g,[.4,.028,.4],[0,.015,i*.415],0xd4b955);for(let j=0;j<4;j++)box(g,[.027,.012,.32],[-.135+j*.09,.034,i*.415],0xecd37e,false);}for(let i=0;i<3;i++){box(g,[.4,.03,.4],[i*.415,.016,0],0xd4b955);for(let x=0;x<4;x++)for(let z=0;z<4;z++)cylinder(g,.022,.025,.014,[i*.415-.135+x*.09,.037,-.135+z*.09],0xe9cf6b,6,false);}return g;}

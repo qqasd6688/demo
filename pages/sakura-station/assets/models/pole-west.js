@@ -1,0 +1,4 @@
+import {group,cylinder,box,beam,ring,chips} from '../core/geometry.js';
+export const westPosition=[-6.65,.23,1.6];
+export const westAnchors=[[-6.65,6.48,1.15],[-6.65,6.48,2.05],[-6.65,5.97,1.6]];
+export function createWestPole(){const g=group('west-concrete-utility-pole');cylinder(g,.095,.165,6.6,[0,3.3,0],0xa4aa95,12);box(g,[.13,.13,1.25],[0,6.02,0],0x697e6c);for(const z of [-.45,.45]){beam(g,[0,5.9,0],[0,6.02,z],.025,0x5d7261);cylinder(g,.053,.053,.21,[0,6.15,z],0xe2dfbf,10);for(let j=0;j<3;j++)cylinder(g,.072,.072,.024,[0,6.07+j*.07,z],0xc7ceaf,10);}box(g,[.13,.12,.35],[0,5.6,0],0x6c7e68);cylinder(g,.065,.065,.16,[0,5.66,0],0xd4d5b5,10);for(const y of [.8,1.1,3.7,4.3,5.4])ring(g,.128,.012,[0,y,0],0x687765);for(let i=0;i<8;i++)beam(g,[-.11,1.6+i*.41,0],[-.29,1.6+i*.41,0],.018,0x677963);box(g,[.18,.33,.018],[0,1.4,.154],0xe1dbb8);box(g,[.14,.05,.021],[0,1.45,.164],0x517b68);chips(g,0,.6,.16,.2,.6,0x7e8d72,5);return g;}

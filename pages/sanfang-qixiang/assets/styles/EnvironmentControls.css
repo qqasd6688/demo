@@ -1,0 +1,29 @@
+@media (max-height: 650px) {
+  :where(.sanfang-page) .environment-controls {
+    top: 14px;
+    left: 14px;
+    width: 228px;
+  }
+  :where(.sanfang-page) .time-controls button,
+  :where(.sanfang-page) .weather-controls button {
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+}
+@media (max-width: 600px) {
+  :where(.sanfang-page) .environment-controls {
+    top: 68px;
+    left: 12px;
+    width: 212px;
+  }
+  :where(.sanfang-page) .time-controls button {
+    padding: 6px 2px;
+  }
+  :where(.sanfang-page) .time-controls button small {
+    display: none;
+  }
+  :where(.sanfang-page) .weather-controls button {
+    gap: 3px;
+    font-size: 10px;
+  }
+}

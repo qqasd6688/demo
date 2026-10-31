@@ -1,0 +1,2 @@
+import {group,cylinder,box} from '../../core/geometry.js';
+export function createCola(){const g=group('classic-cola-bottle');cylinder(g,.057,.052,.22,[0,.11,0],0x705c4d,12);cylinder(g,.023,.055,.08,[0,.26,0],0x746453,12);cylinder(g,.026,.025,.045,[0,.32,0],0xaf5f52,10);cylinder(g,.059,.059,.09,[0,.14,0],0xc57465,12);box(g,[.065,.016,.006],[0,.14,.058],0xf3d8be,false);box(g,[.021,.005,.004],[-.016,.108,.06],0xe4b292,false);return g;}

@@ -1,0 +1,627 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="漫游福州三坊七巷，探索街巷古厝、四时天气与三维驾驶。" />
+    <title>三坊七巷 · 福州古城文化漫游</title>
+    <link rel="stylesheet" href="./assets/styles/utilities.css" />
+    <link rel="stylesheet" href="./assets/styles/page.css" />
+    <link rel="stylesheet" href="./assets/styles/GuideSidebar.css" />
+    <link rel="stylesheet" href="./assets/styles/EnvironmentControls.css" />
+    <link rel="stylesheet" href="./assets/styles/MapToolbar.css" />
+    <link rel="stylesheet" href="./assets/styles/MiniMap.css" />
+    <link rel="stylesheet" href="./assets/styles/MapLoading.css" />
+    <link rel="stylesheet" href="./assets/styles/GuideAbout.css" />
+    <script type="module" src="./assets/main.js"></script>
+  </head>
+  <body>
+    <div
+      data-theme="day"
+      data-entrance="roads"
+      class="sanfang-page flex flex-col overflow-hidden h-dvh w-full text-ink bg-paper"
+    >
+      <div class="workspace relative flex flex-1 min-h-0">
+        <aside
+          inert
+          class="entrance-ui entrance-left sidebar shrink-0 flex flex-col z-[5] w-[316px] min-h-0 border-r border-r-line bg-paper [background-image:radial-gradient(#8d806c0a_0.55px,_transparent_0.55px)] [background-size:5px_5px]"
+          aria-label="景点导览"
+        >
+          <section class="intro pt-[28px] px-[26px] pb-[23px]">
+            <div class="eyebrow flex items-center gap-[8px] text-[10px] tracking-[2px] text-muted">
+              福州古城 · 文化漫游
+            </div>
+            <h1 class="serif font-serif">一街风华<br />千年坊巷</h1>
+            <p>循黛瓦，入深巷。<br />换一个视角，遇见三坊七巷。</p>
+            <div class="intro-stats flex gap-[21px] mt-[19px] pt-[16px] border-t border-t-line">
+              <div><strong>3</strong><span>坊</span></div>
+              <div><strong>7</strong><span>巷</span></div>
+              <div>
+                <strong></strong><span>精选地标</span
+                ><button
+                  class="crowd-toggle pointer-events-auto px-[9px] py-[6px] text-[10px] text-ink rounded border border-line bg-panel aria-pressed:text-accent"
+                  type="button"
+                  title="暂停 / 继续道路游客"
+                  data-action="toggle-crowd"
+                >
+                  · 人
+                </button>
+              </div>
+            </div>
+            <button
+              class="mt-4 flex w-full items-center justify-between rounded border border-line bg-panel px-3 py-2.5 text-[11px] text-primary hover:bg-soft"
+              type="button"
+              data-action="navigate"
+            >
+              <span>♡ 去看南后街的爱心树</span
+              ><svg
+                class="icon h-[14px] w-[14px]"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path d="M4 12h16m-6-6 6 6-6 6" />
+              </svg>
+            </button>
+          </section>
+          <section
+            hidden
+            class="detail relative pt-[22px] px-[25px] pb-[18px] mb-[18px] border-b border-b-line"
+            aria-label="当前景点"
+          >
+            <div class="detail-top flex justify-between items-center">
+              <span
+                class="detail-category py-[4px] px-[8px] text-[10px] tracking-[1px] text-accent border border-[#ac49362b] rounded-[3px] bg-[#ac49360d]"
+              ></span
+              ><button
+                class="detail-close grid place-items-center w-[29px] h-[29px] rounded-full bg-soft"
+                type="button"
+                aria-label="收起景点详情"
+                data-action="close"
+              >
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="m6 6 12 12M6 18 18 6" />
+                </svg>
+              </button>
+            </div>
+            <h2 class="serif font-serif"></h2>
+            <p class="detail-subtitle mt-0 mx-0 mb-[10px] text-[11px] text-primary"></p>
+            <p class="detail-description m-0 text-[11px] leading-[1.9] text-muted"></p>
+            <div class="detail-bottom flex items-center justify-between mt-[15px] gap-[10px]">
+              <button
+                class="fly-button flex items-center gap-[7px] py-[9px] px-[13px] text-white text-[11px] rounded-[5px] bg-primary"
+                type="button"
+                data-action="fly"
+              >
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="m3 10 18-7-7 18-3-8Zm8 3L21 3" /></svg
+                >飞到这里</button
+              ><a
+                class="source-link text-[10px] whitespace-nowrap"
+                target="_blank"
+                rel="noopener noreferrer"
+                >资料来源 ↗</a
+              >
+            </div>
+            <div
+              class="coordinate mt-[12px] [font:9px_ui-monospace,_monospace] tracking-[0.2px] text-muted"
+            >
+              ° N ° E ·
+            </div>
+            <div
+              class="coordinate mt-[12px] [font:9px_ui-monospace,_monospace] tracking-[0.2px] text-muted"
+            ></div>
+          </section>
+          <div class="search-area pt-0 px-[22px] pb-[15px]">
+            <label
+              class="search-box flex items-center h-[41px] gap-[9px] py-0 px-[11px] border border-line rounded-[5px] bg-[#fff8]"
+              ><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <circle cx="10.5" cy="10.5" r="6.5" />
+                <path d="m16 16 5 5" /></svg
+              ><span
+                class="screen-only absolute overflow-hidden w-[1px] h-[1px] p-0 m-[-1px] whitespace-nowrap border-0 [clip:rect(0,_0,_0,_0)]"
+                >搜索景点、坊巷或地址</span
+              ><input
+                type="search"
+                placeholder="寻找一处古厝、一条老巷"
+                autocomplete="off" /><button
+                data-action="clear-search"
+                class="clear-search shrink-0 w-[24px] h-[28px] p-[3px] bg-transparent"
+                type="button"
+                aria-label="清空搜索"
+              >
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="m6 6 12 12M6 18 18 6" />
+                </svg></button
+            ></label>
+            <div
+              class="filters flex gap-[7px] mt-[13px] mx-0 mb-0"
+              role="group"
+              aria-label="景点分类"
+            >
+              <button
+                data-filter="全部"
+                class="filter py-[6px] px-[12px] text-[11px] text-muted rounded-[5px] bg-transparent aria-pressed:bg-primary aria-pressed:text-[#fff]"
+                type="button"
+              >
+                精选
+              </button>
+              <button
+                data-filter="古厝"
+                class="filter py-[6px] px-[12px] text-[11px] text-muted rounded-[5px] bg-transparent aria-pressed:bg-primary aria-pressed:text-[#fff]"
+                type="button"
+              >
+                古厝
+              </button>
+              <button
+                data-filter="展馆"
+                class="filter py-[6px] px-[12px] text-[11px] text-muted rounded-[5px] bg-transparent aria-pressed:bg-primary aria-pressed:text-[#fff]"
+                type="button"
+              >
+                展馆
+              </button>
+              <button
+                data-filter="坊巷"
+                class="filter py-[6px] px-[12px] text-[11px] text-muted rounded-[5px] bg-transparent aria-pressed:bg-primary aria-pressed:text-[#fff]"
+                type="button"
+              >
+                坊巷
+              </button>
+            </div>
+          </div>
+          <div
+            class="flex items-center justify-between pt-0 px-[26px] pb-[10px] list-heading text-[11px] text-muted"
+          >
+            <strong></strong><span> 处</span>
+          </div>
+          <div
+            class="overflow-auto flex-1 min-h-[80px] pt-0 px-[13px] pb-[16px] list-scroll [scrollbar-width:thin] [scrollbar-color:#c9c0b2_transparent]"
+          >
+            <ul class="place-list m-0 p-0 list-none"></ul>
+            <div
+              hidden
+              class="empty py-[32px] px-[20px] text-center text-[12px] leading-[1.9] text-muted"
+            >
+              没有找到这处地点<br />试试“严复”“南后街”或“衣锦坊”
+            </div>
+          </div>
+        </aside>
+
+        <main
+          class="stage flex-1 relative z-0 overflow-hidden min-w-0 bg-map"
+          aria-label="三坊七巷三维地图"
+        >
+          <canvas class="map-canvas" tabindex="0"></canvas>
+          <div
+            class="view-status absolute flex items-center pointer-events-none z-[4] top-[29px] left-[50%] py-[8px] px-[14px] gap-[7px] text-[11px] whitespace-nowrap border border-[#ffffff80] rounded-[30px] bg-panel shadow-[var(--shadow)] [opacity:0]"
+            role="status"
+            aria-live="polite"
+          >
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="m3 10 18-7-7 18-3-8Zm8 3L21 3" /></svg
+            ><span></span>
+          </div>
+
+          <div
+            inert
+            class="entrance-ui entrance-left environment-controls absolute z-[5] grid w-[248px] max-w-[calc(100%_-_36px)] top-[20px] left-[20px] gap-[6px]"
+            aria-label="场景时段与天气"
+          >
+            <div
+              class="time-controls grid [grid-template-columns:repeat(4,_minmax(0,_1fr))] gap-[3px] p-[4px] border border-line rounded-[6px] bg-panel shadow-[0_3px_14px_#342a2110]"
+              role="group"
+              aria-label="时段切换"
+            >
+              <button
+                data-time="dawn"
+                class="px-1 py-2 text-xs text-muted rounded bg-transparent hover:bg-soft hover:text-ink aria-pressed:bg-primary aria-pressed:text-paper"
+                type="button"
+                data-action="time"
+              >
+                清晨<small class="block mt-[3px] text-[9px] tracking-[1px]">06:00</small>
+              </button>
+              <button
+                data-time="day"
+                class="px-1 py-2 text-xs text-muted rounded bg-transparent hover:bg-soft hover:text-ink aria-pressed:bg-primary aria-pressed:text-paper"
+                type="button"
+                data-action="time"
+              >
+                日间<small class="block mt-[3px] text-[9px] tracking-[1px]">12:00</small>
+              </button>
+              <button
+                data-time="dusk"
+                class="px-1 py-2 text-xs text-muted rounded bg-transparent hover:bg-soft hover:text-ink aria-pressed:bg-primary aria-pressed:text-paper"
+                type="button"
+                data-action="time"
+              >
+                黄昏<small class="block mt-[3px] text-[9px] tracking-[1px]">18:00</small>
+              </button>
+              <button
+                data-time="night"
+                class="px-1 py-2 text-xs text-muted rounded bg-transparent hover:bg-soft hover:text-ink aria-pressed:bg-primary aria-pressed:text-paper"
+                type="button"
+                data-action="time"
+              >
+                夜晚<small class="block mt-[3px] text-[9px] tracking-[1px]">21:00</small>
+              </button>
+            </div>
+            <div
+              class="weather-controls grid [grid-template-columns:repeat(3,_minmax(0,_1fr))] gap-[3px] p-[4px] border border-line rounded-[6px] bg-panel shadow-[0_3px_14px_#342a2110]"
+              role="group"
+              aria-label="天气切换"
+            >
+              <button
+                data-weather="sunny"
+                class="flex items-center justify-center gap-[5px] px-[2px] py-2 text-[11px] text-muted rounded bg-transparent hover:bg-soft hover:text-ink aria-pressed:bg-primary aria-pressed:text-paper"
+                type="button"
+                data-action="weather"
+              >
+                <svg
+                  class="icon h-[14px] w-[14px]"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <circle cx="12" cy="12" r="4" />
+                  <path d="M12 1v2m0 18v2M1 12h2m18 0h2M4 4l2 2m12 12 2 2M4 20l2-2M18 6l2-2" /></svg
+                >晴天
+              </button>
+              <button
+                data-weather="rainy"
+                class="flex items-center justify-center gap-[5px] px-[2px] py-2 text-[11px] text-muted rounded bg-transparent hover:bg-soft hover:text-ink aria-pressed:bg-primary aria-pressed:text-paper"
+                type="button"
+                data-action="weather"
+              >
+                <svg
+                  class="icon h-[14px] w-[14px]"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path
+                    d="M5 15a3.5 3.5 0 0 1-.3-7A5.5 5.5 0 0 1 15 6a4.5 4.5 0 1 1 3 9M8 18l-1 3m6-3-1 3m6-3-1 3"
+                  /></svg
+                >雨天
+              </button>
+              <button
+                data-weather="snowy"
+                class="flex items-center justify-center gap-[5px] px-[2px] py-2 text-[11px] text-muted rounded bg-transparent hover:bg-soft hover:text-ink aria-pressed:bg-primary aria-pressed:text-paper"
+                type="button"
+                data-action="weather"
+              >
+                <svg
+                  class="icon h-[14px] w-[14px]"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path
+                    d="M12 2v20M3.34 7l17.32 10M3.34 17 20.66 7M8.5 4 12 7.5 15.5 4M8.5 20l3.5-3.5 3.5 3.5M3.5 11.2 8.3 10l-1.2-4.8M20.5 12.8 15.7 14l1.2 4.8M3.5 12.8 8.3 14l-1.2 4.8M20.5 11.2 15.7 10l1.2-4.8"
+                  /></svg
+                >下雪
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="labels entrance-ui absolute pointer-events-none z-[3] overflow-hidden inset-0"
+            aria-label="地图景点标签"
+          ></div>
+
+          <nav
+            inert
+            class="entrance-ui entrance-right toolbar absolute flex flex-col z-[4] right-[20px] top-[20px] p-[5px] border border-[#ffffff80] rounded-[10px] bg-panel shadow-[var(--shadow)]"
+            aria-label="地图工具"
+          >
+            <button
+              class="tool flex items-center justify-center relative w-[39px] h-[39px] rounded-[6px] bg-transparent hover:bg-soft aria-pressed:bg-soft aria-pressed:text-accent"
+              type="button"
+              aria-label="返回全景"
+              data-tip="返回全景 Home"
+              data-action="home"
+            >
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="m3 10 9-7 9 7v11H3ZM9 21v-8h6v8" />
+              </svg>
+            </button>
+            <button
+              class="tool flex items-center justify-center relative w-[39px] h-[39px] rounded-[6px] bg-transparent hover:bg-soft aria-pressed:bg-soft aria-pressed:text-accent"
+              type="button"
+              aria-label="显示景点标签"
+              data-tip="景点标签"
+              data-action="labels"
+            >
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="m12 3 10 5-10 5L2 8Zm-9 10 9 5 9-5M3 18l9 5 9-5" />
+              </svg>
+            </button>
+            <div class="tool-divider h-px my-1 mx-[7px] bg-line"></div>
+            <button
+              class="tool relative flex h-[39px] w-[39px] items-center justify-center rounded-md bg-transparent hover:bg-soft"
+              type="button"
+              aria-label="导览说明"
+              data-tip="导览说明"
+              data-action="about"
+            >
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 11v6m0-10v.2" />
+              </svg>
+            </button>
+            <button
+              class="tool relative flex h-[39px] w-[39px] items-center justify-center rounded-md bg-transparent hover:bg-soft aria-pressed:bg-soft aria-pressed:text-accent"
+              type="button"
+              data-action="tour"
+            >
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="m7 4 13 8-13 8Z" fill="currentColor" stroke="none" />
+              </svg>
+            </button>
+            <button
+              class="tool relative flex h-[39px] w-[39px] items-center justify-center rounded-md bg-transparent hover:bg-soft aria-pressed:bg-soft aria-pressed:text-accent"
+              type="button"
+              data-action="drive"
+            >
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path
+                  d="m5 8 2-5h10l2 5M4 17H2V9l3-1h14l3 1v8h-2M4 17v3h3v-3m10 0v3h3v-3M4 17h16M2 12h20"
+                />
+                <path d="M5 14h2m10 0h2" />
+              </svg>
+            </button>
+            <button
+              class="tool relative flex h-[39px] w-[39px] items-center justify-center rounded-md bg-transparent hover:bg-soft"
+              type="button"
+              aria-label="全屏浏览"
+              data-tip="全屏浏览"
+              data-action="fullscreen"
+            >
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M3 9V3h6m6 0h6v6M3 15v6h6m6 0h6v-6" />
+              </svg>
+            </button>
+
+          </nav>
+
+          <div
+            hidden
+            class="driving-hint absolute bottom-7 left-1/2 z-[4] flex max-w-[calc(100%-40px)] -translate-x-1/2 items-center gap-4 rounded-lg border border-line bg-panel px-5 py-3 text-[11px] shadow-[var(--shadow)]"
+            role="region"
+            aria-label="驾驶操作"
+          >
+            <svg
+              class="icon shrink-0 text-accent"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path
+                d="m5 8 2-5h10l2 5M4 17H2V9l3-1h14l3 1v8h-2M4 17v3h3v-3m10 0v3h3v-3M4 17h16M2 12h20"
+              />
+              <path d="M5 14h2m10 0h2" />
+            </svg>
+            <div class="shrink-0">
+              <strong class="block text-ink"></strong><span class="text-muted"> km/h</span>
+            </div>
+            <div class="text-muted">
+              <span class="block">左键拖动视角 · 车头跟随</span>
+              <span class="block">W/S 前后 · A/D 左右平移</span>
+              <span> · Esc 退出</span>
+            </div>
+          </div>
+
+          <section
+            inert
+            class="entrance-ui mini-panel absolute z-[5] overflow-hidden w-[200px] bottom-[20px] left-[20px] border border-line rounded-[5px] bg-panel shadow-[var(--shadow)]"
+            aria-label="街区总览"
+          >
+            <canvas
+              class="mini-map"
+              width="380"
+              height="280"
+              aria-label="街区小地图，点击建筑选中；使用左侧景点列表飞行定位"
+              data-action="pick"
+            ></canvas>
+            <button
+              class="compass absolute bottom-[6px] left-[6px] flex items-center justify-center w-[38px] h-[34px] p-0 gap-[3px] bg-transparent"
+              type="button"
+              aria-label="地图朝北"
+              title="点击指南针，地图朝北"
+              data-action="north"
+            >
+              <span>N</span
+              ><svg viewBox="0 0 40 40" aria-hidden="true">
+                <circle cx="20" cy="20" r="19" fill="var(--panel)" stroke="var(--line)" />
+                <path d="m20 7 6 17-6-3-6 3Z" fill="#ac4936" />
+                <path d="m20 33 6-9-6-3-6 3Z" fill="#8c8a82" />
+              </svg>
+            </button>
+          </section>
+
+          <a
+            class="map-attribution absolute bottom-1 right-2 z-[4] rounded-sm bg-panel px-1 text-[9px] text-muted"
+            href="https://www.openstreetmap.org/copyright"
+            target="_blank"
+            rel="noopener noreferrer"
+            >© OpenStreetMap contributors</a
+          >
+
+          <div
+            class="loading absolute z-[8] flex flex-col items-center justify-center inset-0 p-[30px] text-center bg-map"
+            role="status"
+          >
+            <div class="loader-mark relative w-[46px] h-[46px] border border-[#938574]"></div>
+            <h2 class="serif font-serif">展开一座古城</h2>
+            <p>正在加载街巷与地图资源…</p>
+            <button
+              hidden
+              class="retry py-[10px] px-[19px] mt-[12px] text-[#fff] text-[12px] rounded-[6px] bg-primary"
+              type="button"
+              data-action="retry"
+            >
+              重新尝试
+            </button>
+          </div>
+        </main>
+      </div>
+
+      <dialog
+        class="m-auto [&_p]:my-3 [&_ul]:list-disc"
+        id="about-dialog"
+        aria-labelledby="about-title"
+      >
+        <div class="dialog-title flex items-center justify-between gap-[15px] mb-[18px]">
+          <h2 class="serif font-serif" id="about-title">关于这次坊巷漫游</h2>
+          <button type="button" data-action="close-about" aria-label="关闭说明">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="m6 6 12 12M6 18 18 6" />
+            </svg>
+          </button>
+        </div>
+        <p>
+          一份基于本地地图数据的三维街区导览。用鼠标俯瞰街巷，点击建筑或爱心树查看详情；点击左侧景点，让镜头平滑飞过去。
+        </p>
+        <h3>怎样游览</h3>
+        <ul>
+          <li>左键拖拽旋转；右键拖拽平移；滚轮或双指捏合缩放。</li>
+          <li>
+            点击地图建筑、爱心树或景点标签，更新详情并保留当前视野；点击左侧列表或“飞到这里”才平滑飞行；点击空地、街道不触发选择。左侧“坊巷”可快捷飞往并高亮对应街巷。
+          </li>
+          <li>左下角街区总览随镜头显示观察方向，点击指南针可回到朝北视角。</li>
+          <li>
+            全屏按钮上方的“开始导览”从林则徐纪念馆澳门路入口出发，向北经过海峡民间艺术馆 →
+            非遗博览苑 → 爱心榕树 → 林觉民·冰心故居。全程约 840
+            米，不走重复路段，镜头随道路平滑转向；完成后自动回到默认全景，再次点击“停止导览”则停在当前视野。精选列表由南向北排列，列表与地图编号一致。
+          </li>
+          <li>进入页面时镜头从高空落向默认全景，拖拽或按 Esc 可立即打断。</li>
+          <li>
+            导览按钮下方的小车图标开启驾驶。小车固定从南后街南口、澳门桥北侧引道出发，面向街内；镜头居中跟随。按住鼠标左键拖动调整水平视角和俯仰，车头跟随水平朝向。W
+            前进、S 后退、A/D 左右平移，平移不改变视角。Esc
+            或再次点击小车图标退出并回到进入前的视野。驾驶范围沿现有道路，车身移动和转向均受道路、建筑及路灯约束；贴近障碍时先平移到有空间的位置再转向。楼梯与窄步道不供车辆通行。切换导览、景点定位等导航时退出驾驶，页面失焦会结束拖动、松开按键并停车。
+          </li>
+          <li>
+            <kbd>Home</kbd> 返回全景，<kbd>+</kbd> / <kbd>−</kbd> 缩放，<kbd>Esc</kbd>
+            停止飞行；地图获得焦点后，可用方向键平移。
+          </li>
+        </ul>
+        <h3>地图与模型</h3>
+        <p>
+          道路、建筑轮廓与景点位置来自 OpenStreetMap，使用 WGS84 坐标，数据获取于
+          2026-10-23。保留了院落内的天井与街巷连接关系。建筑高度、瓦片纹理、门窗、绿化与灯光为风格化示意，并非实景摄影测量模型。公开地图的覆盖范围和标注可能不完整。街巷高亮按当前地图范围内的同名道路分段绘制，分段间不强行连线；长度为地图折线的示意长度。杨桥巷保留北界东段的历史位置示意。街灯统一沿道路中心线布置为双灯头，并非逐盏实测；四个时段为氛围预设，黄昏和夜晚自动亮灯。
+        </p>
+        <p>
+          “杨桥巷”按历史名称展示，位置沿现今杨桥东路；林则徐纪念馆位于历史街区南侧。道路游客每次刷新随机生成，每组
+          1～5
+          人，独行与结伴交错，可通过“游客漫游”按钮暂停。清晨人少，日间增多，黄昏最热闹，夜晚有所回落；左侧人数对应当前场景中的游客。游客为示意角色，不是实时人流。左上角可分别切换时段与晴天、雨天、下雪。雨天含风向变化、街道水花与低频随机闪电；雪天含分层飘雪和屋顶、地面的薄积雪。天气为场景效果。
+        </p>
+        <p>
+          爱心榕树参照南后街实景的双瓣树冠、灰褐分叉树干与垂落气根建模，结合南后街安民巷口附近的路网示意放置；树形、尺寸与落点不作为测绘数据。
+        </p>
+        <p>
+          林则徐纪念馆采用 OSM
+          馆区边界定位；内部的展厅、祠堂、鹤池和园林参照现场导览图示意补建，建筑轮廓、尺寸与高度并非测绘成果。导览图摄影：董辰兴，2019
+          年，CC BY-SA 4.0；补建布局采用同一许可（<a
+            href="https://creativecommons.org/licenses/by-sa/4.0/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >许可说明</a
+          >）。
+        </p>
+        <h3>资料来源</h3>
+        <div class="source-list grid gap-[8px] text-[11px]">
+          <a
+            href="https://commons.wikimedia.org/w/index.php?curid=80487736"
+            target="_blank"
+            rel="noopener noreferrer"
+            >林则徐纪念馆 · 现场导览图（董辰兴 / CC BY-SA 4.0）↗</a
+          >
+          <a
+            href="https://www.openstreetmap.org/way/705649920"
+            target="_blank"
+            rel="noopener noreferrer"
+            >OpenStreetMap · 林则徐纪念馆馆区边界 ↗</a
+          >
+          <a
+            href="https://m.fznews.com.cn/dsxw/20210908/6138277c6c90a.shtml"
+            target="_blank"
+            rel="noopener noreferrer"
+            >央广网 · 南后街爱心树实景与位置 ↗</a
+          >
+          <a
+            href="https://www.openstreetmap.org/#map=17/26.0850/119.2916"
+            target="_blank"
+            rel="noopener noreferrer"
+            >OpenStreetMap · 街区地图与地标坐标 ↗</a
+          ><a
+            href="https://www.fuzhou.gov.cn/zgfzzt/zjrc/mdfc/lswh/201311/t20131113_129386.htm"
+            target="_blank"
+            rel="noopener noreferrer"
+            >福州市人民政府 · 三坊七巷文化介绍 ↗</a
+          ><a
+            href="https://www.gl.gov.cn/xjwz/rw/mdgl/gjms/201608/t20160823_1840818.htm"
+            target="_blank"
+            rel="noopener noreferrer"
+            >福州市鼓楼区政府 · 水榭戏台 ↗</a
+          ><a
+            href="https://fzsfqx.com.cn/wscgzsg/6117/fcf45210.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            >三坊七巷景区 · 林觉民·冰心故居 ↗</a
+          ><a
+            href="https://gzw.fuzhou.gov.cn/zwgk/gqfc/202504/t20250408_5001276.htm"
+            target="_blank"
+            rel="noopener noreferrer"
+            >福州市国资委 · 严复故居与古厝数字导览 ↗</a
+          >
+        </div>
+        <p>
+          材质与配色参考鼓楼区政府公布的坊巷实景及景区建筑资料：灰瓦、白灰墙、深色木门与朱红灯笼。纹理由程序绘制，体现风貌，不代表逐栋实景复原。水面波纹、水流速度与反光为艺术化动态效果，非实时水文数据。街区与周边地面连续衔接，远处的水墨山峦为艺术化氛围景观，不对应实际山体。山峦固定在街区外围，随视角产生真实透视，缩远时渐显、近看及俯视时淡出。
+        </p>
+        <p>
+          <a
+            href="https://www.gl.gov.cn/xjwz/rw/mdgl/gjms/202502/t20250210_4973489.htm"
+            target="_blank"
+            rel="noopener noreferrer"
+            >坊巷实景 · 门面与马鞍墙 ↗</a
+          >
+          ·
+          <a
+            href="https://www.fzsfqx.com.cn/article/1071/bd621838.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            >三坊七巷古民居建筑特色 ↗</a
+          >
+        </p>
+        <div class="about-bottom mt-[24px] pt-[15px] text-[10px] text-muted border-t border-t-line">
+          地图数据 © OpenStreetMap contributors ·
+          <a
+            href="https://opendatacommons.org/licenses/odbl/1-0/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >ODbL 1.0</a
+          ><br />渲染引擎 Three.js · MIT License · 引擎依赖与地图数据随项目构建
+        </div>
+      </dialog>
+    </div>
+
+    <template id="place-template"
+      ><li>
+        <button
+          class="place flex items-center w-full gap-[12px] py-[14px] px-[12px] text-left rounded-[7px] border border-transparent bg-transparent hover:bg-soft aria-pressed:border-[#c8b49c] aria-pressed:bg-[#ebe2d4] aria-pressed:border-l-[3px] aria-pressed:border-l-accent"
+          type="button"
+          data-action="navigate"
+        >
+          <span
+            class="place-index shrink-0 grid place-items-center w-[34px] h-[35px] text-primary [font:14px_Georgia,_serif] border border-line rounded-[5px] bg-[#ffffff70]"
+          ></span
+          ><span class="place-content flex-1 min-w-0"
+            ><span class="place-name block text-[12px] leading-[1.55] tracking-[0.4px]"></span
+            ><span class="place-meta block mt-[5px] text-[10px] text-muted"></span></span
+          ><svg class="icon arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M4 12h16m-6-6 6 6-6 6" />
+          </svg>
+        </button></li
+    ></template>
+    <noscript>请开启 JavaScript 以浏览三维街区。</noscript>
+  </body>
+</html>

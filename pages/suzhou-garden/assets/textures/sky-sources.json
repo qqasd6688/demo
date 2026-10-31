@@ -1,0 +1,16 @@
+[
+  {
+    "file": "kloofendal_48d_partly_cloudy_puresky.hdr",
+    "url": "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/2k/kloofendal_48d_partly_cloudy_puresky_2k.hdr",
+    "md5": "2eba3a4d7eeb23cbfbeca364c97e7980",
+    "license": "CC0-1.0",
+    "asset": "https://polyhaven.com/a/kloofendal_48d_partly_cloudy_puresky"
+  },
+  {
+    "file": "qwantani_sunset_puresky.hdr",
+    "url": "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/qwantani_sunset_puresky_1k.hdr",
+    "md5": "fe79b1b213166a70871eaddf7fce8c4e",
+    "license": "CC0-1.0",
+    "asset": "https://polyhaven.com/a/qwantani_sunset_puresky"
+  }
+]

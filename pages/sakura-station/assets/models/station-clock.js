@@ -1,0 +1,2 @@
+import {group,cylinder,box,ring} from '../core/geometry.js';
+export function createStationClock(){const g=group('station-analogue-clock');const d=cylinder(g,.22,.22,.065,[0,0,0],0xf0e9cc,32);d.rotation.x=Math.PI/2;ring(g,.22,.022,[0,0,.038],0x597967,[0,0,0]);for(let i=0;i<12;i++){const a=i*Math.PI/6;const t=box(g,[.012,.028,.006],[Math.sin(a)*.175,Math.cos(a)*.175,.041],0x6d7d65,false);t.rotation.z=-a;}const m=box(g,[.012,.15,.01],[.031,.06,.048],0x4c6b59);m.rotation.z=-.5;const h=box(g,[.017,.11,.011],[-.045,-.022,.049],0x4c6b59);h.rotation.z=-1.1;return g;}

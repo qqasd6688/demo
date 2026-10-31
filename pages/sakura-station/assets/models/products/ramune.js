@@ -1,0 +1,2 @@
+import {group,cylinder,sphere,box} from '../../core/geometry.js';
+export function createRamune(){const g=group('ramune-glass-bottle');cylinder(g,.061,.056,.22,[0,.11,0],0x84bdba,10);cylinder(g,.027,.059,.07,[0,.255,0],0xa3d1cd,10);cylinder(g,.025,.026,.08,[0,.32,0],0x9dcac0,10);cylinder(g,.032,.032,.035,[0,.371,0],0x447c92,10);cylinder(g,.062,.062,.08,[0,.13,0],0xe6eee2,10);box(g,[.042,.047,.008],[0,.13,.062],0x5698ac,false);sphere(g,.022,[0,.302,0],0x739faf);box(g,[.017,.006,.003],[.019,.147,.064],0xc5d6c3,false);return g;}

@@ -1,0 +1,2 @@
+import {group,cylinder,ring,sphere} from '../../core/geometry.js';
+export function createOrangeSoda(){const g=group('mikan-orange-soda');cylinder(g,.063,.063,.24,[0,.12,0],0xe3a45f,14);cylinder(g,.061,.061,.012,[0,.246,0],0xd4d0b7,14);ring(g,.023,.006,[0,.255,0],0x8b9785);cylinder(g,.064,.064,.11,[0,.12,0],0xf0dfb6,14);const m=sphere(g,.039,[0,.13,.061],0xde9854,1);m.scale.z=.2;const wear=sphere(g,.009,[.02,.174,.064],0xd6cba8,0);wear.scale.set(1,.35,.15);return g;}
