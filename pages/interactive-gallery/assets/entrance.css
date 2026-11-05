@@ -1,0 +1,367 @@
+/* 桌面图文随三维卡片绘制；HTML 保留无障碍语义、点击区及窄屏/静态展示。 */
+* { box-sizing: border-box; }
+body { margin: 0; background: #010713; }
+[hidden] { display: none !important; }
+.entrance {
+  position: relative;
+  isolation: isolate;
+  min-height: 560px;
+  height: 100dvh;
+  overflow: hidden;
+  color: #effaff;
+  background: radial-gradient(ellipse at 50% 20%, #092653 0, #020c22 45%, #010713 100%);
+  font-family: 'Microsoft YaHei', 'PingFang SC', sans-serif;
+}
+.entrance-nebula {
+  position: absolute;
+  inset: 0;
+  opacity: 0.5;
+  background:
+    radial-gradient(ellipse at 24% 22%, #1553a72e, transparent 28%),
+    radial-gradient(ellipse at 65% 16%, #2372c533, transparent 19%),
+    linear-gradient(90deg, transparent 49%, #005cff0a 50%, transparent 51%);
+  pointer-events: none;
+}
+.entrance-footer {
+  position: absolute;
+  left: 3.2%;
+  right: 3.2%;
+  z-index: 200;
+}
+.entrance-stage {
+  position: absolute;
+  inset: 0;
+}
+.entrance-stage canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.is-ready .entrance-stage,
+.is-ready .portal-link {
+  cursor: grab;
+}
+.entrance.is-dragging,
+.is-dragging .portal-link {
+  cursor: grabbing;
+  user-select: none;
+}
+.portal-layer {
+  user-select: none;
+  touch-action: pan-y;
+}
+.entrance-title {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  z-index: 100;
+  width: 420px;
+  margin: 0;
+  text-align: center;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  text-shadow:
+    0 2px 18px #003481,
+    0 0 35px #57bcff8c;
+}
+.entrance-title strong {
+  display: block;
+  font:
+    800 65px/1.1 Arial,
+    sans-serif;
+  letter-spacing: -2px;
+}
+.entrance-title span {
+  display: block;
+  margin-top: 14px;
+  font:
+    500 13px/1.2 Arial,
+    sans-serif;
+  letter-spacing: 2.4px;
+  white-space: nowrap;
+}
+.is-ready .entrance-title {
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+.portal-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.portal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 320px;
+  height: 476px;
+  transform-origin: 0 0;
+  pointer-events: auto;
+  will-change: transform;
+}
+.portal-link {
+  position: relative;
+  display: block;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+}
+.portal-link:focus-visible {
+  outline: 3px solid #b6ffff;
+  outline-offset: 9px;
+  box-shadow: 0 0 35px #59d4ff;
+}
+.portal-caption {
+  position: absolute;
+  bottom: 42px;
+  left: 9px;
+  right: 9px;
+  text-align: center;
+}
+.portal-caption h2 {
+  margin: 0;
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 1.4;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow-wrap: anywhere;
+  text-shadow: 0 2px 9px #00112b;
+}
+.portal-emblem {
+  position: absolute;
+  top: 37%;
+  left: 50%;
+  width: 65px;
+  height: 70px;
+  transform: translate(-50%, -50%);
+}
+.portal-emblem i {
+  position: absolute;
+  width: 47px;
+  height: 47px;
+  left: 9px;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #89ccff, #275fbe);
+  transform: rotateX(54deg) rotateZ(45deg);
+  box-shadow: 4px 4px 8px #002458;
+}
+.portal-emblem i:nth-child(1) {
+  top: 25px;
+}
+.portal-emblem i:nth-child(2) {
+  top: 10px;
+}
+.portal-emblem i:nth-child(3) {
+  top: -5px;
+}
+.portal-emblem i:nth-child(3)::after {
+  content: '';
+  position: absolute;
+  inset: 18px;
+  background: #112d62;
+  border-radius: 2px;
+}
+.portal-art {
+  position: absolute;
+  inset: 0 0 25%;
+  width: 100%;
+  height: 75%;
+  object-fit: cover;
+}
+.is-ready .portal-art {
+  visibility: hidden;
+}
+@media (min-width: 760px) {
+  /* 文字与图标已绘入三维面板，不再用 HTML 叠在整个场景之上。 */
+  .is-ready .portal-caption,
+  .is-ready .portal-emblem {
+    opacity: 0;
+  }
+}
+.entrance-footer {
+  bottom: 25px;
+  color: #819cbf;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+.entrance-help {
+  color: #5e7b9f;
+  font-size: 11px;
+}
+.entrance-footer { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+.entrance-meta { position: absolute; top: 24px; left: 3.2%; right: 3.2%; z-index: 200; display: flex; justify-content: flex-end; gap: 16px; color: #819cbf; font-size: 11px; letter-spacing: 1px; pointer-events: none; }
+.entrance-controls, .gallery-pagination { display: flex; align-items: center; gap: 18px; }
+.entrance-controls { margin-left: auto; }
+.gallery-pagination { flex-wrap: wrap; gap: 10px; }
+#group-label { min-width: 64px; text-align: center; color: #b6d6ee; }
+.motion-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 15px;
+  border: 1px solid #3980ba55;
+  border-radius: 3px;
+  color: #b6d6ee;
+  background: #06182f8c;
+  cursor: pointer;
+  font:
+    11px 'Microsoft YaHei',
+    sans-serif;
+}
+.motion-button:hover {
+  border-color: #4ecbff;
+  color: white;
+}
+.motion-button:focus-visible {
+  outline: 2px solid #69e6ff;
+  outline-offset: 4px;
+}
+.motion-button:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+.entrance-loading {
+  position: absolute;
+  top: 66%;
+  width: 100%;
+  text-align: center;
+  color: #70b9e8;
+  font-size: 12px;
+  letter-spacing: 4px;
+}
+.entrance:not(.is-ready):not(.is-fallback) .portal-layer {
+  visibility: hidden;
+}
+.entrance-fallback-note {
+  position: relative;
+  margin: 0;
+  padding: 0 30px 20px;
+  text-align: center;
+  color: #8caece;
+  font-size: 12px;
+}
+
+/* 窄屏及 WebGL 不可用时改为静态网格，入口始终可用且保留图文。 */
+.is-fallback.entrance {
+  height: auto;
+  min-height: 100dvh;
+  overflow: auto;
+}
+.is-fallback .entrance-stage {
+  display: none;
+}
+.is-fallback .entrance-title {
+  position: relative;
+  top: auto !important;
+  left: auto !important;
+  margin: 100px auto 65px;
+  transform: none !important;
+  max-width: 90%;
+}
+.is-fallback .portal-layer {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+  padding: 0 6% 50px;
+}
+.is-fallback .portal {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  transform: none !important;
+}
+.is-fallback .portal-link {
+  overflow: hidden;
+  border: 1px solid #67bdff;
+  border-radius: 5px;
+  background: linear-gradient(#0c356d, #06182e);
+}
+.is-fallback .entrance-footer {
+  position: relative;
+  padding: 20px 0;
+}
+.is-fallback .portal-art {
+  visibility: visible;
+}
+
+@media (max-width: 759px) {
+  .entrance {
+    height: auto;
+    min-height: 100dvh;
+    overflow: hidden;
+  }
+  .entrance-stage {
+    height: 420px;
+  }
+  .entrance-title {
+    max-width: 90%;
+  }
+  .entrance-title strong {
+    font-size: 57px;
+  }
+  .portal-layer,
+  .is-fallback .portal-layer {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px 14px;
+    padding: 410px 18px 35px;
+  }
+  .portal,
+  .is-fallback .portal {
+    position: relative;
+    width: 100%;
+    height: 265px;
+    transform: none !important;
+  }
+  .portal-link {
+    overflow: hidden;
+    border: 1px solid #4eb3ec;
+    border-radius: 5px;
+    background: linear-gradient(#0b2d63, #031329);
+    box-shadow: 0 0 22px #2187e62e;
+  }
+  .portal-art,
+  .is-ready .portal-art {
+    visibility: visible;
+  }
+  .portal-caption {
+    bottom: 26px;
+    left: 4px;
+    right: 4px;
+  }
+  .portal-caption h2 {
+    font-size: clamp(11px, 2.9vw, 19px);
+  }
+  .portal-emblem {
+    transform: translate(-50%, -50%) scale(0.7);
+  }
+  .entrance-footer {
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    padding: 5px 20px 24px;
+  }
+  .entrance-help {
+    display: none;
+  }
+  .entrance-meta { font-size: 9px; }
+  .gallery-pagination { justify-content: center; width: 100%; }
+  .is-fallback .portal-layer {
+    padding-top: 0;
+  }
+  .is-fallback .entrance-title strong {
+    font-size: 42px;
+  }
+  .is-fallback .entrance-title span {
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+}

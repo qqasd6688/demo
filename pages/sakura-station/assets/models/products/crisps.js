@@ -1,0 +1,2 @@
+import {group,box,sphere} from '../../core/geometry.js';
+export function createCrisps(){const g=group('salted-potato-crisps');const p=box(g,[.15,.22,.075],[0,.12,0],0xd8bb72);p.rotation.z=-.06;box(g,[.153,.015,.08],[0,.23,0],0xeaddaa);box(g,[.153,.015,.08],[.013,.017,0],0xc4a66a);const s=sphere(g,.048,[0,.11,.043],0xf0deac,1);s.scale.z=.12;box(g,[.09,.023,.007],[0,.17,.042],0x759161,false);const fold=box(g,[.004,.064,.004],[.059,.095,.043],0xb19e6d,false);fold.rotation.z=.15;return g;}

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#080f18">
+    <meta name="description" content="微境 · 悬浮于深空的生态秘境。一方雪山、森林与流动的河流，在指尖缓缓经历昼夜。">
+    <title>微境 MICROCOSM · 一方独立世界</title>
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./assets/style.css">
+    <script type="module" src="./assets/main.js"></script>
+  </head>
+  <body>
+    <main class="experience" id="experience">
+      <div class="ambient-glow" aria-hidden="true"></div>
+      <header class="masthead interface">
+
+        <div class="wordmark"><svg viewBox="0 0 32 36" aria-hidden="true"><path d="M16 2 30 10v16L16 34 2 26V10Z M2 10l14 8 14-8M16 18v16 M9 14V9l7-4 7 4v5"/></svg><span>微境 <b>MICROCOSM</b></span></div>
+        <span class="edition"><i></i> 一方独立世界 <span> / 002</span></span>
+      </header>
+
+      <section class="introduction interface" aria-labelledby="page-title">
+        <p class="eyebrow"><span></span> A SMALL WORLD, ALIVE.</p>
+        <h1 id="page-title">把山海，<br>藏进一方微境。</h1>
+        <p class="intro-copy">在宇宙的一隅，让时间慢下来。<br>看云雾游走，听山河呼吸。<br>这里，自有万物的节律。</p>
+        <div class="world-index"><span>01 — ∞</span><i></i><span>自成天地</span></div>
+      </section>
+
+      <nav class="world-views interface" aria-label="近观生态细节">
+        <span class="views-label">换个距离，发现更多</span>
+        <div><button type="button" data-view="all" aria-pressed="true">全景</button><button type="button" data-view="alpine" aria-pressed="false">雪峰</button><button type="button" data-view="forest" aria-pressed="false">林间</button><button type="button" data-view="water" aria-pressed="false">湖畔</button></div>
+        <p id="view-note" aria-live="polite">沿雪线而上，或在林间停留。</p>
+      </nav>
+
+      <section class="world-stage" id="world-stage" aria-label="可旋转的三维微缩生态场景">
+        <canvas id="world" tabindex="0" aria-label="悬浮生态秘境：拖拽旋转，滚轮或双指缩放，方向键旋转，Home 恢复视角"></canvas>
+        <div class="loading" id="loading" role="status"><span class="loading-cube"></span><span>正在唤醒这方世界 <b>· · ·</b></span></div>
+        <div class="fallback" id="fallback" hidden>
+          <img src="./assets/cover.webp" alt="微缩生态岛的雪峰、森林与湖泊截图">
+          <p id="fallback-message">当前设备无法开启三维场景，先欣赏这方微境。</p>
+          <button id="retry" type="button">重新开启世界 ↗</button>
+        </div>
+        <div class="scene-caption interface" aria-hidden="true"><span class="caption-line"></span><span>悬浮一片辽阔<br><b>A WORLD ADRIFT</b></span></div>
+      </section>
+
+      <aside class="view-tools interface" aria-label="场景设置">
+        <button type="button" id="orbit" aria-label="开启自动环绕" aria-pressed="false" title="自动环绕"><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(-30 12 12)"/><path d="m17 3 3 2-1 4M9 6v12M15 6v12"/></svg><span>环绕</span></button>
+        <button type="button" id="atmosphere" aria-label="显示云雾" aria-pressed="true" title="云雾开关"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 15a4 4 0 0 1 0-8 6 6 0 0 1 11-1 4.5 4.5 0 1 1 2 9M4 19h11M18 19h2"/></svg><span>云雾</span></button>
+        <button type="button" id="reset" aria-label="恢复等距视角" title="恢复视角"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10a8 8 0 1 1 0 5M4 4v6h6"/></svg><span>复位</span></button>
+        <span class="tool-divider"></span>
+        <button type="button" id="immerse" aria-label="进入纯观景模式" aria-pressed="false" title="纯观景模式"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4H4v5m11-5h5v5M4 15v5h5m11-5v5h-5"/></svg><span>沉浸</span></button>
+      </aside>
+      <button class="leave-immersive" id="leave-immersive" type="button" hidden>退出观景 <span>ESC</span></button>
+
+      <footer class="bottom-bar interface">
+        <div class="specimen"><span class="specimen-icon">✧</span><div><strong>悬浮生态秘境</strong><span>A FLOATING SANCTUARY</span></div></div>
+        <section class="time-console" aria-label="昼夜控制">
+          <div class="time-heading"><span><i></i> 世界正在呼吸</span><output id="clock" for="time">09:00</output><span id="phase">日光 · 万物生长</span></div>
+          <div class="time-controls">
+            <button type="button" class="play-button" id="pause" aria-label="暂停时间" aria-pressed="false" title="暂停时间"><svg viewBox="0 0 20 20" aria-hidden="true"><path id="play-icon" d="M7 5v10M13 5v10"/></svg></button>
+            <div class="time-track"><label class="sr-only" for="time">世界时间</label><input id="time" type="range" min="0" max="24" step="0.01" value="9" aria-valuetext="09:00"><div class="time-presets"><button type="button" data-time="0">星夜</button><button type="button" data-time="6">晨曦</button><button type="button" data-time="12">日光</button><button type="button" data-time="18">暮色</button><button type="button" data-time="24">子夜</button></div></div>
+            <span class="cycle-mark" title="四分钟，一个昼夜">24h<br><b>↻</b></span>
+          </div>
+        </section>
+        <p class="interaction-hint"><span>拖拽旋转 <i>·</i> 滚动缩放</span><span>停留片刻，也很好。</span></p>
+      </footer>
+      <p class="sr-only" id="announcement" role="status" aria-live="polite"></p>
+      <noscript><div class="noscript-note">开启 JavaScript，即可探索三维微境。</div></noscript>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,2 @@
+import {group,sphere,box} from '../../core/geometry.js';
+export function createMelonPan(){const g=group('bakery-melon-pan');const b=sphere(g,.105,[0,.055,0],0xd9bb7d,2);b.scale.set(1,.65,.9);for(const x of [-.045,0,.045])box(g,[.009,.008,.13],[x,.11-Math.abs(x)*.18,0],0xbda16b,false);for(const z of [-.04,0,.04])box(g,[.135,.007,.008],[0,.112-Math.abs(z)*.2,z],0xc6a76d,false);box(g,[.22,.012,.22],[0,.005,0],0xe9dcc0);box(g,[.043,.003,.008],[.058,.013,.087],0xc7b48f,false);return g;}

@@ -1,0 +1,62 @@
+[
+  {
+    "file": "coral-albedo.jpg",
+    "asset": "coral_ground_02",
+    "map": "Diffuse",
+    "size": "2k",
+    "bytes": 2728909,
+    "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/coral_ground_02/coral_ground_02_diff_2k.jpg",
+    "page": "https://polyhaven.com/a/coral_ground_02",
+    "author": "Rob Tuytel",
+    "license": "CC0-1.0",
+    "md5": "6a58b6b0e4d4f61312f250329374942c"
+  },
+  {
+    "file": "coral-normal.jpg",
+    "asset": "coral_ground_02",
+    "map": "nor_gl",
+    "size": "1k",
+    "bytes": 1258975,
+    "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/coral_ground_02/coral_ground_02_nor_gl_1k.jpg",
+    "page": "https://polyhaven.com/a/coral_ground_02",
+    "author": "Rob Tuytel",
+    "license": "CC0-1.0",
+    "md5": "d0465c5d837b9e00529e146dbdf90dc7"
+  },
+  {
+    "file": "coral-height.jpg",
+    "asset": "coral_ground_02",
+    "map": "Displacement",
+    "size": "1k",
+    "bytes": 223719,
+    "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/coral_ground_02/coral_ground_02_disp_1k.jpg",
+    "page": "https://polyhaven.com/a/coral_ground_02",
+    "author": "Rob Tuytel",
+    "license": "CC0-1.0",
+    "md5": "b99938c7666f8602f6c11b24a22172c7"
+  },
+  {
+    "file": "sand-albedo.jpg",
+    "asset": "coast_sand_01",
+    "map": "Diffuse",
+    "size": "1k",
+    "bytes": 960614,
+    "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/coast_sand_01/coast_sand_01_diff_1k.jpg",
+    "page": "https://polyhaven.com/a/coast_sand_01",
+    "author": "Rob Tuytel",
+    "license": "CC0-1.0",
+    "md5": "a1e243fc8635806381505c7dc44b192a"
+  },
+  {
+    "file": "sand-normal.jpg",
+    "asset": "coast_sand_01",
+    "map": "nor_gl",
+    "size": "1k",
+    "bytes": 1146826,
+    "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/coast_sand_01/coast_sand_01_nor_gl_1k.jpg",
+    "page": "https://polyhaven.com/a/coast_sand_01",
+    "author": "Rob Tuytel",
+    "license": "CC0-1.0",
+    "md5": "38bbe6863249a3d20d8417c9db207780"
+  }
+]

@@ -1,0 +1,20 @@
+import * as THREE from '../vendor/three/build/three.module.min.js';
+import {group,place} from '../core/geometry.js';
+import {createGroceryShelf} from '../models/grocery-shelf.js';
+import {createRefrigerator} from '../models/refrigerator.js';
+import {createCounter} from '../models/counter.js';
+import {createCashRegister} from '../models/cash-register.js';
+import {createCeilingLight} from '../models/ceiling-light.js';
+import {createRamune} from '../models/products/ramune.js';
+import {createGreenTea} from '../models/products/green-tea.js';
+import {createCoffee} from '../models/products/coffee.js';
+import {createOrangeSoda} from '../models/products/orange-soda.js';
+import {createCola} from '../models/products/cola.js';
+import {createStrawberryMilk} from '../models/products/strawberry-milk.js';
+import {createOnigiri} from '../models/products/onigiri.js';
+import {createMelonPan} from '../models/products/melon-pan.js';
+import {createCrisps} from '../models/products/crisps.js';
+import {createPocky} from '../models/products/pocky.js';
+import {createTissue} from '../models/products/tissue.js';
+import {createCupNoodle} from '../models/products/cup-noodle.js';
+export function createInterior(){const g=group('complete-store-interior');place(g,createRefrigerator(),[1.66,.25,-1.68]);place(g,createGroceryShelf(),[-1.7,.25,-1.6]);place(g,createGroceryShelf(),[-1.6,.25,.1]);const drinks=[createRamune,createGreenTea,createCoffee,createOrangeSoda,createCola,createStrawberryMilk];for(let row=0;row<4;row++)for(let col=0;col<9;col++){const product=drinks[(col+row)%drinks.length]();place(g,product,[.86+col*.195,.51+row*.43,-1.5]);}const groceries=[createOnigiri,createMelonPan,createCrisps,createPocky,createTissue,createCupNoodle];for(const [shelfZ,offset] of [[-1.6,0],[.1,2]])for(let row=0;row<3;row++)for(let col=0;col<6;col++){const product=groceries[(col+row+offset)%groceries.length]();place(g,product,[-2.35+col*.26,.43+row*.45,shelfZ+.13]);}place(g,createCounter(),[1.85,.25,.85]);place(g,createCashRegister(),[1.6,1.19,.78]);place(g,createTissue(),[2.25,1.19,1.0]);for(const x of [-1.7,1.6]){place(g,createCeilingLight(),[x,2.95,-.25]);const light=new THREE.PointLight(0xffedc4,3.2,5,1.4);light.position.set(x,2.6,-.1);g.add(light);}return g;}

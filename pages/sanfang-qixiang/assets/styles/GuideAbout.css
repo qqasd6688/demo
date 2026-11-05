@@ -1,0 +1,11 @@
+:where(.sanfang-page) .dialog-title h2 {
+  font-size: 25px;
+  font-weight: 500;
+  margin: 0;
+}
+:where(.sanfang-page) .dialog-title button {
+  background: var(--soft);
+  border-radius: 50%;
+  padding: 7px;
+  display: flex;
+}

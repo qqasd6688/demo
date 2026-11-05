@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="星空、地球与六个空白展位构成的三维数字展厅。拖动环绕，自由观察光影。" />
+    <meta name="color-scheme" content="dark" />
+    <title>数字展厅 · ai demo</title>
+    <link rel="icon" href="data:," />
+    <link rel="preload" as="image" type="image/webp" href="./assets/images/starfield.webp" />
+    <link rel="stylesheet" href="./assets/entrance.css" />
+    <script type="module" src="./assets/main.js"></script>
+  </head>
+  <body>
+    <main class="entrance is-fallback" id="entrance">
+      <div class="entrance-nebula" aria-hidden="true"></div>
+      <div class="entrance-stage" aria-hidden="true"><canvas></canvas></div>
+      <div class="entrance-meta"><span>数字展厅 · 视觉实验</span></div>
+      <h1 class="entrance-title"><strong>ai demo</strong><span>INTERACTIVE DIGITAL GALLERY</span></h1>
+      <section class="portal-layer" aria-label="六个空白展位">
+        <article class="portal" aria-label="空白展位 1"><div class="portal-link"></div></article>
+        <article class="portal" aria-label="空白展位 2"><div class="portal-link"></div></article>
+        <article class="portal" aria-label="空白展位 3"><div class="portal-link"></div></article>
+        <article class="portal" aria-label="空白展位 4"><div class="portal-link"></div></article>
+        <article class="portal" aria-label="空白展位 5"><div class="portal-link"></div></article>
+        <article class="portal" aria-label="空白展位 6"><div class="portal-link"></div></article>
+      </section>
+      <p class="entrance-loading" role="status" hidden>正在点亮数字展厅···</p>
+      <p class="entrance-fallback-note" role="status" hidden>当前显示静态展厅。</p>
+      <noscript><p class="entrance-fallback-note">开启 JavaScript，可体验三维环绕与光影。</p></noscript>
+      <footer class="entrance-footer">
+        <nav class="gallery-pagination" aria-label="展位分组" hidden>
+          <button class="motion-button" type="button" id="previous-group" aria-label="上一组">← 上一组</button>
+          <span id="group-label" aria-live="polite" aria-atomic="true"></span>
+          <button class="motion-button" type="button" id="next-group" aria-label="下一组">下一组 →</button>
+        </nav>
+        <div class="entrance-controls"><span class="entrance-help">左右拖拽旋转 · 自由观察</span><button type="button" class="motion-button" id="motion-toggle" aria-pressed="false" disabled>Ⅱ 暂停动效</button></div>
+      </footer>
+    </main>
+  </body>
+</html>

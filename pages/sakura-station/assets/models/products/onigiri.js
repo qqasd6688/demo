@@ -1,0 +1,3 @@
+import * as THREE from '../../vendor/three/build/three.module.min.js';
+import {group,mesh,box} from '../../core/geometry.js';
+export function createOnigiri(){const g=group('wrapped-salmon-onigiri');const s=new THREE.Shape();s.moveTo(-.095,0);s.lineTo(.095,0);s.quadraticCurveTo(.112,.02,.073,.08);s.lineTo(.016,.18);s.quadraticCurveTo(0,.198,-.016,.18);s.lineTo(-.073,.08);s.quadraticCurveTo(-.112,.02,-.095,0);mesh(g,new THREE.ExtrudeGeometry(s,{depth:.075,bevelEnabled:true,bevelSize:.006,bevelThickness:.005,bevelSegments:1,steps:1}),0xf1edda);box(g,[.065,.08,.088],[0,.04,.038],0x526a50);box(g,[.064,.035,.007],[0,.12,.085],0xd39a83,false);box(g,[.003,.08,.003],[-.034,.056,.085],0xa2a891,false);return g;}

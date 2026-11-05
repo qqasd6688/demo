@@ -1,0 +1,3 @@
+import {group,box,sphere,chips} from '../core/geometry.js';
+import {sign} from '../core/textures.js';
+export function createShopSign(){const g=group('komorebi-shop-sign');box(g,[6.75,.7,.19],[0,2.92,2.37],0x4d7965);box(g,[6.65,.51,.035],[0,2.93,2.48],0xf5ead0);sign(g,'こもれび商店',3.9,.44,[.25,2.94,2.51],{bg:'#f5ead0',fg:'#436952',sub:'K O M O R E B I   •   M A R T',font:'bold 108px "Yu Gothic",sans-serif'});for(let i=0;i<5;i++){const a=i*Math.PI*2/5;const p=sphere(g,.11,[-2.5+Math.sin(a)*.115,2.94+Math.cos(a)*.115,2.56],0xc9969a,1);p.scale.set(1,1,.3);}sphere(g,.052,[-2.5,2.94,2.59],0xf2ca75);chips(g,2.8,2.9,2.506,.6,.45,0xd3c5a6,4);for(const child of g.children)child.position.z+=.32;return g;}

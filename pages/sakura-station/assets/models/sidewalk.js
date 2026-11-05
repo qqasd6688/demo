@@ -1,0 +1,2 @@
+import {group,box} from '../core/geometry.js';
+export function createSidewalk(){const g=group('concrete-sidewalk');box(g,[16,.14,6.85],[0,.16,-.98],0xcac9b2);box(g,[16,.12,1.16],[0,.15,7.42],0xc3c6ad);for(let i=0;i<24;i++){box(g,[.655,.23,.22],[-7.67+i*.667,.18,2.4],i%4===0?0xc3c3af:0xdddbc7);box(g,[.655,.2,.18],[-7.67+i*.667,.18,6.92],0xd6d7bf);}for(let x=-7;x<8;x+=1.25)box(g,[.012,.003,1.65],[x,.232,1.45],0xb7b7a3,false);for(const z of [.8,1.55])box(g,[15.8,.003,.012],[0,.232,z],0xb9b9a6,false);return g;}

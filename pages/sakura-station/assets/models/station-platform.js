@@ -1,0 +1,2 @@
+import {group,box} from '../core/geometry.js';
+export function createStationPlatform(){const g=group('rural-station-platform');box(g,[15.9,.3,1.62],[0,.25,-4.45],0xb7b9a0);for(let i=0;i<27;i++)box(g,[.57,.12,.25],[-7.68+i*.59,.44,-5.12],0xdcd7b8);box(g,[15.7,.025,.21],[0,.416,-4.78],0xccba73);for(let i=0;i<45;i++)box(g,[.055,.008,.14],[-7.7+i*.35,.433,-4.78],0xe6d38a,false);box(g,[1.4,.16,.4],[4.8,.18,-3.5],0xccc9af);box(g,[1.4,.25,.35],[4.8,.27,-3.82],0xcac8ad);return g;}

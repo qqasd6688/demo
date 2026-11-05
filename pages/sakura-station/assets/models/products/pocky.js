@@ -1,0 +1,2 @@
+import {group,box} from '../../core/geometry.js';
+export function createPocky(){const g=group('strawberry-biscuit-box');box(g,[.115,.25,.052],[0,.125,0],0xc98889);box(g,[.08,.037,.003],[0,.205,.028],0xf3dfbf,false);for(let i=0;i<3;i++){const b=box(g,[.012,.12,.005],[-.03+i*.028,.092,.03],0x855c4a,false);b.rotation.z=-.25;box(g,[.011,.037,.005],[-.015+i*.028,.042,.031],0xd9b479,false);}box(g,[.006,.038,.004],[-.051,.201,.028],0xe0c1ae,false);return g;}

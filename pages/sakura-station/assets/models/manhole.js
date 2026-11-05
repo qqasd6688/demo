@@ -1,0 +1,2 @@
+import {group,cylinder,ring,box} from '../core/geometry.js';
+export function createManhole(){const g=group('cast-iron-manhole');cylinder(g,.43,.43,.025,[0,0,0],0x626f65,32);for(const r of [.14,.27,.36])ring(g,r,.009,[0,.016,0],0x879285);for(let i=0;i<12;i++){const a=i*Math.PI/6;const b=box(g,[.055,.009,.025],[Math.cos(a)*.21,.018,Math.sin(a)*.21],0x9ca08a,false);b.rotation.y=-a;}box(g,[.07,.008,.025],[0,.021,.33],0x394a44);return g;}

@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#e6ebe2">
+  <meta name="description" content="晴日、樱花与街角的小店。一方可以自由漫游的日式乡村车站微缩景观。">
+  <title>樱日小站 · Sakura Station</title>
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./assets/style.css">
+</head>
+<body>
+  <main id="world" aria-label="樱花车站微缩景观">
+    <canvas id="scene" tabindex="0" aria-label="拖动旋转；右键或按住 Shift 拖动平移；滚轮缩放。触屏单指旋转，双指平移和缩放。数字 1 至 5 切换天气，Home 恢复视角。"></canvas>
+  </main>
+  <div id="loading" role="status" aria-live="polite"><span class="loading-flower" aria-hidden="true">✿</span><p id="loading-label">正在打开春日小站</p><div class="loading-track"><i id="loading-progress"></i></div></div>
+  <nav class="weather" aria-label="天气"><button data-weather="sunny" aria-label="晴日，快捷键 1" aria-pressed="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.4 1.4m11.2 11.2L19 19M5 19l1.4-1.4M17.6 6.4 19 5"/></svg><span>晴日</span></button><button data-weather="cloudy" aria-label="薄云，快捷键 2" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M6 18a4.5 4.5 0 0 1-.5-9A6.5 6.5 0 0 1 18 8a5 5 0 0 1 0 10Z"/></svg><span>薄云</span></button><button data-weather="rain" aria-label="春雨，快捷键 3" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M5 14a4 4 0 0 1 0-8 6 6 0 0 1 11 0 4 4 0 0 1 2 8M7 17l-1 3m6-3-1 3m6-3-1 3"/></svg><span>春雨</span></button><button data-weather="sunset" aria-label="夕照，快捷键 4" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M3 16h18M5 20h14M7 16a5 5 0 0 1 10 0M12 3v3M4 8l2 2m12 0 2-2"/></svg><span>夕照</span></button><button data-weather="snow" aria-label="细雪，快捷键 5" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M12 2v20M3.4 7l17.2 10M3.4 17 20.6 7M9 4l3 3 3-3M9 20l3-3 3 3M3 10l4-1-1-4m12 14-1-4 4-1M3 14l4 1-1 4M18 5l-1 4 4 1"/></svg><span>细雪</span></button></nav>
+  <script type="module" src="./assets/main.js"></script>
+</body>
+</html>

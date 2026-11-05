@@ -1,0 +1,3 @@
+import {group,box,beam,chips} from '../core/geometry.js';
+import {sign} from '../core/textures.js';
+export function createStationShelter(){const g=group('sakura-station-shelter');for(const x of [-1.8,1.8]){box(g,[.15,2.4,.15],[x,1.2,0],0x8ca38b);beam(g,[x,1.8,0],[x-.35*Math.sign(x),2.35,0],.045,0x6f8c77);box(g,[.27,.12,.27],[x,.06,0],0xb8b7a0);}box(g,[3.9,.12,1.56],[0,2.46,0],0x8ba593);for(let i=0;i<19;i++)box(g,[.035,.04,1.62],[-1.9+i*.21,2.54,0],0xa6b7a1);box(g,[4.05,.19,.11],[0,2.4,.8],0x658574);for(const y of [.46,.78,1.1])box(g,[3.5,.16,.09],[0,y,-.54],0xa7ac8e);sign(g,'さくら駅',1.35,.37,[0,2.15,.16],{bg:'#e5e7cc',fg:'#4e7863',sub:'SAKURA'});for(const x of [-.6,.6])beam(g,[x,2.33,.12],[x,2.48,.12],.015,0x67826e);chips(g,-1.8,.5,.081,.1,.6,0xb3b299,5);return g;}

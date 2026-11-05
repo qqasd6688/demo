@@ -1,0 +1,3 @@
+import {group,beam,cylinder} from '../core/geometry.js';
+import {blossomCrown,moss} from '../core/botany.js';
+export function createEastSakura(){const g=group('spreading-sakura-east');cylinder(g,.73,.8,.2,[0,.1,0],0xafa98d,12);cylinder(g,.69,.69,.025,[0,.21,0],0x8e9773,12);beam(g,[0,.2,0],[.12,1.7,0],.17,0x7a755f,9);beam(g,[.12,1.7,0],[.38,2.85,-.15],.12,0x82795f,8);const ends=[[-.7,2.9,.5],[.92,3.22,.16],[.05,3.65,-.7],[-.63,3.8,-.1],[.63,4.15,.15]];for(let i=0;i<ends.length;i++){beam(g,[.12,1.7+i*.18,0],ends[i],.075-i*.008,0x8b8067,8);blossomCrown(g,ends[i],.92+(i%2)*.12,i+6);}moss(g,0,0,.38);return g;}

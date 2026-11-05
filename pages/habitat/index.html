@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f4f2ed">
+  <meta name="description" content="栖居 HABITAT，85㎡、120㎡与220㎡大平层三种交互式三维住宅。拖拽旋转家具、替换材质，控制灯光与家电，让家回应你。">
+  <title>栖居 HABITAT · 让家，回应你</title>
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./assets/style.css">
+  <link rel="stylesheet" href="./assets/editor.css">
+  <script type="module" src="./assets/main.js"></script>
+</head>
+<body>
+  <div class="app" id="app">
+    <header class="header">
+      <div class="brand"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="m4 14 12-9 12 9v13H4ZM11 27V15h10v12M16 5v10"/></svg><span>栖居<span class="brand-en">HABITAT</span></span></div>
+      <div class="header-center"><span class="status-dot"></span> 一个有回应的家 <span class="header-slash">/</span> INTERACTIVE LIVING</div>
+      <div class="header-actions"><button class="text-button" id="plan-open"><span data-icon="plan"></span> 户型图</button></div>
+    </header>
+
+    <aside class="sidebar" aria-label="空间导航">
+      <div class="home-heading"><p class="eyebrow">A PLACE TO CALL HOME</p><h1>让家，回应你<span>。</span></h1><p class="subheading">一束光，一点温度。<br>家的每一处，都在你的掌心。</p></div>
+      <button class="layout-trigger" id="layout-open" aria-haspopup="dialog"><span data-icon="plan"></span><span><small>当前户型</small><strong id="layout-current">林间 · 120㎡</strong></span><span class="layout-change">切换 ↗</span></button>
+      <div class="section-label">我的空间 <span>01 / HOME</span></div>
+      <nav class="room-nav" id="room-nav" aria-label="选择房间"></nav>
+      <section class="scene-section" aria-label="生活场景"><div class="section-label">把生活调到喜欢的样子</div><div class="scene-grid"><button class="scene-button active" data-scene="home"><span data-icon="home"></span><span>温暖归家</span></button><button class="scene-button" data-scene="movie"><span data-icon="movie"></span><span>观影时刻</span></button><button class="scene-button" data-scene="sleep"><span data-icon="moon"></span><span>晚安好梦</span></button><button class="scene-button" data-scene="away"><span data-icon="leaf"></span><span>安心离家</span></button></div></section>
+      <div class="residence-note"><div class="residence-glyph" data-icon="plan"></div><div><strong id="residence-name">林间 · 120</strong><span id="residence-description">两间卧室 / 独立书房</span></div><span class="edition">01</span></div>
+    </aside>
+
+    <main class="workspace">
+      <div class="space-heading"><div><span class="eyebrow">THE LIVING CANVAS</span><h2 id="space-title">全屋漫游 <span>Whole home</span></h2></div><div class="environment-switch" role="group" aria-label="环境光照"><button data-day="day" class="active" aria-pressed="true"><span data-icon="sun"></span> 日光</button><button data-day="night" aria-pressed="false"><span data-icon="moon"></span> 夜晚</button></div></div>
+      <section class="viewport" id="viewport" aria-label="三维住宅模型">
+        <canvas id="home-canvas" tabindex="0" aria-label="三维户型：拖动旋转，滚轮缩放，右键拖动平移，方向键旋转，Home 复位，点击家电打开菜单"></canvas>
+        <div id="markers" class="markers"></div>
+        <div id="room-labels" class="room-labels" aria-hidden="true"></div>
+        <div class="loading" id="loading" role="status"><span class="loading-home" data-icon="home"></span><p>正在为你打开家门<span>CRAFTING YOUR SPACE</span></p></div>
+        <div class="error-panel" id="error-panel" hidden><span data-icon="home"></span><h2>三维场景暂时未能开启</h2><p id="error-message">请使用支持 WebGL 2 的浏览器。</p><button id="retry" class="primary-button">重新打开</button><button id="fallback-plan" class="text-button">查看二维户型图</button></div>
+        <div class="hover-label" id="hover-label" hidden></div>
+      </section>
+      <button id="fullscreen-toggle" class="fullscreen-toggle" aria-pressed="false" title="全屏看房"><span data-icon="expand"></span><span id="fullscreen-label">全屏看房</span></button>
+      <button class="quality-toggle" id="quality-toggle" aria-pressed="true" title="切换精细 / 流畅画质"><span data-icon="spark"></span><span id="quality-label">精细画质</span></button>
+      <button class="edit-toggle" id="edit-toggle" aria-pressed="false" disabled><span data-icon="sliders"></span><span>编辑空间</span></button>
+      <div class="edit-ribbon" id="edit-ribbon" hidden><span class="edit-ribbon-dot"></span><span id="edit-selection-label">选择一件家具</span><span class="edit-ribbon-separator"></span><button data-edit-tool="move" aria-pressed="true" title="拖动家具调整位置">移动</button><button data-edit-tool="rotate" aria-pressed="false" title="拖动家具或圆环调整方向">旋转</button><button id="edit-done" title="完成编辑，返回设备控制">完成 <span>✓</span></button></div>
+      <div class="scene-caption"><span class="caption-rule"></span><span id="scene-caption">日光漫进来，生活慢下来。</span></div>
+      <div class="view-toolbar" aria-label="视图工具"><div class="view-tabs"><button id="view-3d" class="active" aria-pressed="true"><span data-icon="cube"></span> 三维</button><button id="view-top" aria-pressed="false"><span data-icon="plan"></span> 俯视</button></div><span class="toolbar-divider"></span><button class="icon-button" id="zoom-in" aria-label="放大" title="放大"><span data-icon="plus"></span></button><button class="icon-button" id="zoom-out" aria-label="缩小" title="缩小"><span data-icon="minus"></span></button><button class="icon-button" id="reset-view" aria-label="恢复全屋视角" title="恢复全屋视角"><span data-icon="reset"></span></button><span class="toolbar-divider"></span><button class="icon-button active" id="walls-toggle" aria-label="自动隐藏遮挡墙体" aria-pressed="true" title="自动隐藏遮挡墙体"><span data-icon="walls"></span></button><button class="icon-button active" id="markers-toggle" aria-label="显示设备标记" aria-pressed="true" title="显示设备标记"><span data-icon="pin"></span></button><button class="icon-button" id="orbit-toggle" aria-label="自动环绕" aria-pressed="false" title="自动环绕"><span data-icon="orbit"></span></button></div>
+      <div class="viewport-footer"><span><i class="status-dot"></i><span id="wall-status">遮挡墙体自动隐藏</span></span><span class="gesture-hint">拖动旋转 <i>·</i> 滚轮缩放 <i>·</i> 点击设备</span><button class="text-button" id="help-open" aria-label="操作帮助"><span data-icon="help"></span></button></div>
+    </main>
+
+    <aside class="inspector" id="inspector" aria-label="设备控制">
+      <div class="inspector-title"><span>空间里的小默契</span><span class="live-badge"><i></i> 可交互</span><button class="icon-button mobile-close" id="inspector-close" aria-label="收起设备控制"><span data-icon="close"></span></button></div>
+      <div class="device-hero" id="device-hero"><div class="hero-orbit"></div><div class="hero-icon" id="hero-icon"></div><span class="hero-status" id="hero-status">已开启</span><span class="hero-index" id="hero-index">01 / LIGHTING</span></div>
+      <div class="device-heading"><div><p id="device-room">客厅 · 照明</p><h2 id="device-name">悬环吊灯</h2></div><button class="power-toggle" id="device-power" role="switch" aria-checked="true" aria-label="悬环吊灯电源"><span></span></button></div>
+      <div id="device-controls" class="device-controls"></div>
+      <div class="device-feedback" id="device-feedback"><span data-icon="spark"></span><p>光落下来，家就有了温度。</p></div>
+      <div class="related-heading"><span id="related-title">同一空间</span><span id="related-count"></span></div>
+      <div id="device-list" class="device-list"></div>
+      <div class="local-note"><i class="status-dot"></i> 虚拟设备 · 状态保存在此浏览器</div>
+    </aside>
+
+    <aside class="inspector furniture-editor" id="furniture-editor" aria-label="家具编辑" hidden>
+      <div class="inspector-title"><span>空间，随你而变</span><span class="live-badge"><i></i> 编辑中</span><button class="icon-button mobile-close" id="editor-close" aria-label="收起家具编辑"><span data-icon="close"></span></button></div>
+      <div class="editor-scroll">
+        <div class="editor-intro"><span class="eyebrow">YOUR PERSONAL ATELIER</span><h2 id="furniture-title">选择一件家具</h2><p id="furniture-meta">在模型中点击，开始布置。</p></div>
+        <label class="editor-field-label" for="furniture-select">当前家具 <span id="furniture-count"></span></label>
+        <select id="furniture-select" class="furniture-select" aria-label="选择编辑的家具"></select>
+        <div class="editor-section-heading"><span>材质与饰面</span><span id="finish-count">05 FINISHES</span></div>
+        <div class="finish-swatches" id="finish-swatches" role="group" aria-label="家具材质"></div>
+        <div class="finish-caption"><span id="finish-name">原配饰面</span><span>实时预览</span></div>
+        <div class="editor-section-heading"><span>位置与方向</span><button id="edit-snap" aria-pressed="true">吸附 <i></i></button></div>
+        <div class="transform-fields"><label><span>X 位置 <small>m</small></span><input id="furniture-x" type="number" step="0.1" aria-label="家具 X 位置（米）"></label><label><span>Z 位置 <small>m</small></span><input id="furniture-z" type="number" step="0.1" aria-label="家具 Z 位置（米）"></label><label><span>旋转 <small>°</small></span><input id="furniture-angle" type="number" step="15" aria-label="家具旋转角度"></label></div>
+        <div class="rotation-actions"><button data-rotate="-15" aria-label="逆时针旋转15度">↶ <span>15°</span></button><span>拖动圆环，调整方向</span><button data-rotate="15" aria-label="顺时针旋转15度"><span>15°</span> ↷</button></div>
+        <p class="edit-precision" id="edit-precision">拖动吸附 10 cm · 旋转吸附 15°</p>
+        <div class="editor-history"><button id="edit-undo" disabled><span data-icon="reset"></span>撤销</button><button id="edit-redo" disabled><span data-icon="reset"></span>重做</button><button id="edit-reset">恢复原样</button></div>
+        <details class="editor-guide"><summary>布置小提示 <span>+</span></summary><p>拖动家具移动，拖动圆环旋转。拖动空白处环绕视角，滚轮缩放；俯视模式更方便对齐。</p><p>方向键移动 · Q / E 旋转<br>Shift 精调 · Ctrl / ⌘ + Z 撤销</p><p>可自由穿过内墙和其他家具，请自行检查摆放间距。</p></details>
+        <button class="reset-layout-design" id="edit-reset-all">恢复本户型全部家具 <span>↺</span></button>
+      </div>
+      <div class="editor-save" role="status"><i></i><span id="edit-save-status">已保存到此浏览器</span><small>按户型独立保存</small></div>
+    </aside>
+
+    <footer class="app-footer"><span>DESIGNED FOR THE WAY YOU LIVE.</span><span><b id="active-count">0</b> 台设备运行中 <i>·</i> <b id="power-total">0</b> W <span class="estimate-label">模拟功率</span></span><span><b id="layout-area">120</b> m² <i>·</i> 概念住宅</span></footer>
+    <button class="mobile-devices" id="mobile-devices"><span data-icon="sliders"></span><span id="mobile-panel-label">设备控制</span><span id="mobile-count"></span></button>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </div>
+
+  <dialog id="plan-dialog" class="plan-dialog"><div class="dialog-heading"><div><p class="eyebrow">A THOUGHTFUL FLOOR PLAN</p><h2 id="plan-title">林间 · 120㎡ 户型图</h2></div><button class="icon-button" data-close-dialog aria-label="关闭户型图"><span data-icon="close"></span></button></div><div class="plan-image-wrap"><img id="plan-image" src="./assets/plans/family.svg" alt="林间120平方米概念户型图"></div><div class="plan-footer"><p><span id="plan-description">两间卧室 · 独立书房 · 一厨一卫</span><br><span>原始概念户型图，不含家具编辑结果。面积含墙体，非施工图。</span></p><a class="primary-button" id="plan-download" href="./assets/plans/family.svg" download="林间-120平方米户型图.svg"><span data-icon="download"></span> 下载户型图</a></div></dialog>
+  <dialog id="layout-dialog" class="layout-dialog" aria-labelledby="layout-dialog-title"><div class="dialog-heading"><div><p class="eyebrow">THREE WAYS TO FEEL AT HOME</p><h2 id="layout-dialog-title">换一种空间，发现家的可能。</h2></div><button class="icon-button" data-close-dialog aria-label="关闭户型选择"><span data-icon="close"></span></button></div><div class="layout-options" id="layout-options"></div><p class="layout-hint">每套户型独立保存家具布局、材质与设备状态。切换后，可下载对应的二维户型图。</p></dialog>
+  <dialog id="help-dialog" class="help-dialog"><div class="dialog-heading"><h2>从这里，走近你的家。</h2><button class="icon-button" data-close-dialog aria-label="关闭操作帮助"><span data-icon="close"></span></button></div><dl><div><dt>旋转 / 平移</dt><dd>左键拖动 / 右键拖动；触屏单指 / 双指拖动</dd></div><div><dt>靠近 / 远离</dt><dd>滚动鼠标滚轮，或双指捏合</dd></div><div><dt>控制设备</dt><dd>点击模型中的家电、圆形标记，或右侧设备列表</dd></div><div><dt>让光发生变化</dt><dd>切换夜晚，独立调节每盏灯的开关、亮度和色温</dd></div><div><dt>布置家具</dt><dd>进入“编辑空间”，拖动家具移动、拖动圆环旋转；点击材质球更换饰面。支持撤销与自动保存。</dd></div><div><dt>键盘操作</dt><dd>聚焦模型后使用方向键旋转，+ / − 缩放，Home 复位；Esc 关闭面板</dd></div></dl><p>全部设备为交互模拟，不会控制现实中的电器。</p></dialog>
+  <noscript><div class="noscript">此页面需要 JavaScript 来呈现可交互的住宅。<a href="./assets/floor-plan.svg">查看二维户型图</a></div></noscript>
+</body>
+</html>

@@ -1,0 +1,2 @@
+import {group,box,chips} from '../core/geometry.js';
+export function createGroceryShelf(){const g=group('freestanding-grocery-shelf');box(g,[1.8,1.46,.07],[0,.76,-.22],0xbbc5a6);for(const x of [-.9,.9])box(g,[.045,1.6,.48],[x,.8,0],0x6b8978);for(const y of [.15,.6,1.05,1.5]){box(g,[1.85,.045,.56],[0,y,0],0xe1dec5);box(g,[1.85,.065,.025],[0,y+.01,.29],0x78947d);for(let x=-.7;x<.9;x+=.35)box(g,[.12,.04,.003],[x,y+.013,.307],0xf5e6bc,false);}chips(g,0,.17,.305,1.7,.04,0x969b81,5);return g;}

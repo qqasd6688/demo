@@ -1,0 +1,11 @@
+:root { font-family: "Segoe UI", "Microsoft YaHei", sans-serif; color: #23312c; background: #f6f7f2; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+main { max-width: 900px; margin: 0 auto; padding: 48px 24px; }
+a { color: #436136; text-underline-offset: 4px; }
+.eyebrow { margin-top: 80px; color: #527446; letter-spacing: .1em; font-size: 12px; }
+h1 { font-size: clamp(36px, 7vw, 64px); line-height: 1.25; letter-spacing: -.04em; }
+p { line-height: 1.8; }
+button { margin-top: 24px; border: 0; border-radius: 8px; padding: 14px 22px; font: inherit; color: white; background: #436136; cursor: pointer; }
+button:hover { background: #304828; }
+:focus-visible { outline: 3px solid #63834f; outline-offset: 5px; }

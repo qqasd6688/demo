@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#e9ece1">
+  <meta name="description" content="一园山水，半日闲。走入听雨园，在粉墙黛瓦、曲桥荷池与竹影松风之间，寻一方江南。可步行的原创三维苏州园林。">
+  <title>听雨园 · 一园山水，半日闲</title>
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+  <link rel="stylesheet" href="./assets/style.css">
+  <script type="module" src="./assets/main.js"></script>
+</head>
+<body>
+  <main id="experience" class="experience">
+    <canvas id="garden" tabindex="0" aria-label="听雨园三维场景。观景模式拖动旋转，滚轮缩放；漫游模式使用 W A S D 或方向键行走，拖动观察。"></canvas>
+    <div class="vignette" aria-hidden="true"></div>
+    <header class="topbar interface">
+
+      <div class="brand"><span class="seal" aria-hidden="true">听<br>雨</span><div><h1>听雨园</h1><span>TINGYU GARDEN</span></div><i></i><p>苏州意境<br><span>一园山水，半日闲。</span></p></div>
+      <nav class="top-actions" aria-label="体验工具">
+        <button id="sound" class="icon-button" aria-label="开启环境音" title="开启环境音" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="m11 5-5 4H3v6h3l5 4V5ZM16 9l5 6m0-6-5 6"/></svg></button>
+        <button id="map-toggle" class="text-button" aria-haspopup="dialog"><svg viewBox="0 0 24 24"><path d="m3 5 6-2 6 2 6-2v16l-6 2-6-2-6 2V5ZM9 3v16m6-14v16"/></svg><span>游园图</span></button>
+        <button id="settings-toggle" class="text-button" aria-expanded="false" aria-controls="settings"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1 1m12 12 1 1M5 19l1-1M18 6l1-1"/></svg><span>光景</span></button>
+        <button id="immerse" class="icon-button" aria-label="隐藏界面" title="隐藏界面"><svg viewBox="0 0 24 24"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m8 0h5v-5"/></svg></button>
+      </nav>
+    </header>
+
+    <div class="compass interface" aria-label="视野方向"><span>西</span><i></i><strong id="heading">北</strong><i></i><span>东</span><b></b></div>
+    <div class="scene-label interface"><span class="live-dot"></span><span id="scene-weather">清和 · 微风</span><i></i><span id="scene-time">09:30</span></div>
+
+    <section class="scene-story interface" aria-live="polite">
+      <div class="eyebrow"><span id="stop-number">壹</span><i></i><span id="stop-subtitle">曲岸观荷</span><span class="english">A GARDEN TO WANDER</span></div>
+      <h2 id="stop-title">一池烟水</h2>
+      <p id="stop-description">水是园的留白。隔岸的檐、垂下的柳，<br>都在这一池碧色里慢下来。</p>
+      <div class="mode-switch" role="group" aria-label="游览方式"><button id="orbit-mode" aria-pressed="true">自在观景</button><button id="walk-mode" aria-pressed="false"><svg viewBox="0 0 24 24"><circle cx="14" cy="4" r="1.5"/><path d="m7 11 4-4 4 1 3 4m-7-5-1 7-4 7m4-7 5 1 2 6M10 14l3-5"/></svg>入园漫游 <span>↗</span></button></div>
+    </section>
+
+    <aside id="settings" class="settings interface" aria-label="光景设置">
+      <div class="panel-heading"><span>此时 · 此景</span><button id="settings-close" class="icon-button" aria-label="收起光景设置">×</button></div>
+      <div class="time-readout"><strong id="time-caption">清和</strong><span id="time-digital">09<span>:</span>30</span></div>
+      <label class="visually-hidden" for="hour">园林时间</label><input id="hour" type="range" min="5" max="23" value="9.5" step="0.05" aria-label="园林时间">
+      <div class="time-presets" role="group" aria-label="光照时刻"><button data-hour="6.5">晨雾</button><button data-hour="9.5" aria-pressed="true">清和</button><button data-hour="17.4">夕照</button><button data-hour="21">月夜</button></div>
+      <div class="weather-switch" role="group" aria-label="天气"><button data-weather="clear" aria-pressed="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1 1m12 12 1 1M5 19l1-1M18 6l1-1"/></svg>晴日</button><button data-weather="rain" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M6 15a4 4 0 0 1 0-8 6 6 0 0 1 11-1 4.5 4.5 0 0 1 1 9M7 18l-1 3m6-3-1 3m6-3-1 3"/></svg>听雨</button></div>
+      <div class="settings-foot"><button id="pause" aria-pressed="false"><span id="pause-symbol">Ⅱ</span> 暂停时光</button><label>画质<select id="quality" aria-label="画质"><option value="high">精致</option><option value="medium" selected>均衡</option><option value="low">流畅</option></select></label></div>
+    </aside>
+
+    <footer class="bottom-bar interface">
+      <div class="control-hint" id="control-hint"><span class="mouse-icon"></span>拖动环顾 <i>·</i> 滚轮远近</div>
+      <nav class="stops" aria-label="园中六景">
+        <button data-stop="water" aria-pressed="true"><small>01</small><span>烟水</span></button><button data-stop="pavilion" aria-pressed="false"><small>02</small><span>风荷</span></button><button data-stop="moon" aria-pressed="false"><small>03</small><span>入胜</span></button><button data-stop="rock" aria-pressed="false"><small>04</small><span>叠山</span></button><button data-stop="bamboo" aria-pressed="false"><small>05</small><span>竹影</span></button><button data-stop="hall" aria-pressed="false"><small>06</small><span>闲坐</span></button>
+      </nav>
+      <button class="reset-button" id="reset"><svg viewBox="0 0 24 24"><path d="M4 11a8 8 0 1 1 2 6M4 4v7h7"/></svg>重回初景</button>
+    </footer>
+
+    <div id="walk-hud" class="walk-hud interface" hidden><span id="walk-position">南岸</span><button id="pointer-lock">点击锁定视角</button><p>W A S D 行走 <i>·</i> Shift 快行 <i>·</i> 拖动转头 <i>·</i> Esc 释放</p></div>
+    <div id="reticle" class="reticle" hidden aria-hidden="true"></div>
+    <div id="joystick" class="joystick" role="group" aria-label="触屏行走摇杆" hidden><span></span><i id="joystick-thumb"></i></div>
+    <button id="leave-immersive" class="leave-immersive" hidden>显示界面 <span>Esc</span></button>
+    <output id="toast" class="toast" role="status" aria-live="polite"></output>
+    <output id="diagnostics" hidden></output>
+
+    <div id="loading" class="loading" role="status"><div class="loading-mark"><span></span><span></span><i></i></div><p>听雨园</p><span id="loading-text">理水，叠山，候一阵清风。</span><div class="loading-track"><i id="loading-bar"></i></div><small id="loading-percent">0%</small></div>
+    <section id="fallback" class="fallback" hidden><span class="seal">听雨</span><h2>园林暂未展开</h2><p id="fallback-message">当前设备无法开启三维画面。</p><button id="retry">重新入园</button></section>
+    <noscript><div class="fallback"><h2>开启 JavaScript，走入听雨园。</h2></div></noscript>
+  </main>
+  <dialog id="map-dialog" class="map-dialog">
+    <div class="map-title"><div><span class="eyebrow">THE GARDEN AT A GLANCE</span><h2>一纸游园图</h2><p>随心漫步，或择一处风景停留。</p></div><button id="map-close" class="icon-button" aria-label="关闭游园图">×</button></div>
+    <div class="map-content"><div id="garden-map" class="garden-map"></div><nav id="map-stops" aria-label="选择游园目的地"></nav></div>
+    <footer><span><i></i>你的位置</span><span>约 140 × 110 米 · 原创苏州园林意境</span></footer>
+  </dialog>
+</body>
+</html>

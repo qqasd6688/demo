@@ -1,0 +1,2 @@
+import {group,cylinder,box} from '../../core/geometry.js';
+export function createGreenTea(){const g=group('bottled-sencha');cylinder(g,.066,.064,.24,[0,.12,0],0x879e58,12);cylinder(g,.025,.065,.052,[0,.266,0],0x99ae70,12);cylinder(g,.028,.028,.04,[0,.311,0],0xe4dec2,10);cylinder(g,.068,.068,.135,[0,.13,0],0xc4d08a,12);box(g,[.031,.092,.008],[0,.13,.067],0x486b3c,false);box(g,[.025,.005,.004],[-.019,.173,.068],0xe0dfb6,false);return g;}

@@ -1,0 +1,78 @@
+{
+  "provider": "Poly Haven",
+  "id": "modern_arm_chair_01",
+  "source": "https://polyhaven.com/a/modern_arm_chair_01",
+  "license": "CC0-1.0",
+  "licenseUrl": "https://polyhaven.com/license",
+  "retrievedAt": "2026-10-31",
+  "originalUrl": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/1k/modern_arm_chair_01/modern_arm_chair_01_1k.gltf",
+  "bytes": 2698032,
+  "files": {
+    "textures/modern_arm_chair_01_pillow_nor_gl_1k.jpg": {
+      "size": 302377,
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/modern_arm_chair_01/modern_arm_chair_01_pillow_nor_gl_1k.jpg",
+      "md5": "6804f34108fcc755f0c84dd3c638270c"
+    },
+    "textures/modern_arm_chair_01_legs_nor_gl_1k.jpg": {
+      "size": 560864,
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/modern_arm_chair_01/modern_arm_chair_01_legs_nor_gl_1k.jpg",
+      "md5": "7cece7eccf75588af5b5df9b095d2c97"
+    },
+    "textures/modern_arm_chair_01_pillow_arm_1k.jpg": {
+      "size": 321223,
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/modern_arm_chair_01/modern_arm_chair_01_pillow_arm_1k.jpg",
+      "md5": "772495ddbf26ca3de4b31298f10113b9"
+    },
+    "textures/modern_arm_chair_01_legs_diff_1k.jpg": {
+      "size": 460937,
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/modern_arm_chair_01/modern_arm_chair_01_legs_diff_1k.jpg",
+      "md5": "778f1897e07ff81b2bc338f3d463ad1f"
+    },
+    "textures/modern_arm_chair_01_legs_arm_1k.jpg": {
+      "size": 577931,
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/modern_arm_chair_01/modern_arm_chair_01_legs_arm_1k.jpg",
+      "md5": "9c69cb001df175bddf6d1c2436567fb7"
+    },
+    "modern_arm_chair_01.bin": {
+      "size": 240728,
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/8k/modern_arm_chair_01/modern_arm_chair_01.bin",
+      "md5": "5a8f2ea1c79ea484140e484b2a621670"
+    },
+    "textures/modern_arm_chair_01_pillow_diff_1k.jpg": {
+      "size": 228851,
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/modern_arm_chair_01/modern_arm_chair_01_pillow_diff_1k.jpg",
+      "md5": "2e4f64c633c3cb1656ad3eabdb3f0607"
+    }
+  },
+  "authors": {
+    "Vibrant Nordic": "All"
+  },
+  "integration": {
+    "entry": "chair.gltf",
+    "upAxis": "+Y",
+    "forwardAxis": "+Z",
+    "forwardAxisBasis": "Measured upper back cushion vertices are concentrated at z=-0.472m; seat/front extends toward +Z.",
+    "units": "metres",
+    "bounds": {
+      "min": [
+        -0.4068087339401245,
+        0.0003815953677985817,
+        -0.5754517316818237
+      ],
+      "max": [
+        0.4135356843471527,
+        1.0232336521148682,
+        0.41110995411872864
+      ]
+    },
+    "size": [
+      0.8203444182872772,
+      1.0228520567470696,
+      0.9865616858005524
+    ],
+    "origin": "Near ground level; x centre +0.00336m, footprint z centre -0.08217m",
+    "nodes": 1,
+    "primitives": 2,
+    "vertices": 5851
+  }
+}

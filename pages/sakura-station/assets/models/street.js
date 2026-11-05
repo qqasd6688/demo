@@ -1,0 +1,2 @@
+import {group,box,tube} from '../core/geometry.js';
+export function createStreet(){const g=group('quiet-village-street');box(g,[16,.055,4.35],[0,.112,4.65],0x7f8985);for(let i=0;i<8;i++)box(g,[1.02,.005,.065],[-7+i*2,.144,4.65],0xe5e5d1,false);for(const z of [2.65,6.64])box(g,[15.9,.006,.06],[0,.144,z],0xd8d9c4,false);for(let i=0;i<5;i++)box(g,[.43,.006,1.33],[4.2+i*.64,.147,3.45],0xe9e7d3,false);tube(g,[[-6,.146,5.7],[-5.6,.146,5.85],[-5.2,.146,5.7],[-4.95,.146,6.1]],.008,0x626e68);tube(g,[[1,.146,5.6],[1.4,.146,5.2],[1.8,.146,5.3]],.006,0x626e68);return g;}

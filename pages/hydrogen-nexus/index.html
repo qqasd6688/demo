@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="NEXUS 含氢综合能源数字孪生：360° 工业场站，电、热、冷、氢、天然气多能耦合与实时守恒仿真。">
+  <meta name="theme-color" content="#080f18">
+  <title>NEXUS · 含氢综合能源数字孪生</title>
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./assets/style.css">
+  <script type="module" src="./assets/main.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">H<span>2</span></span><span><b>NEXUS<span class="brand-cn">能源中枢</span></b><small>INTEGRATED ENERGY DIGITAL TWIN</small></span></div>
+    <nav aria-label="工作空间"><button class="nav-button active" data-view="overview">全景监控</button><button class="nav-button" id="open-ledger">能量核算 <span>↗</span></button><button class="nav-button" id="open-guide">系统拓扑 <span>↗</span></button></nav>
+    <div class="header-right"><span class="live-pill"><i></i>实时仿真</span><time id="sim-time">12:00:00</time><button class="icon-button" id="reset-simulation" title="重置所有仿真参数" aria-label="重置仿真">↻</button></div>
+  </header>
+  <div class="workspace-heading"><div><span class="tiny-square"></span><h1>含氢综合能源系统</h1><span class="heading-divider">/</span><span>多能耦合示范园区</span></div><div class="workspace-meta"><span>MODEL <b>IES–012</b></span><span><i class="status-dot"></i>系统在线</span></div></div>
+
+  <main class="dashboard">
+    <aside class="left-column">
+      <section class="panel energy-panel"><div class="panel-heading"><h2>能源供给</h2><span>ENERGY SUPPLY</span></div><div class="source-ring"><svg viewBox="0 0 160 160" aria-label="发电来源占比"><circle class="ring-track" cx="80" cy="80" r="65"/><g transform="rotate(-90 80 80)" id="ring-segments"></g></svg><div><b id="supply-total">0</b><span>总供电 · kW</span></div></div><div class="source-list" id="source-list"></div><p class="panel-note">风光优先 · 余电制氢 · 按需补能</p></section>
+      <section class="panel equipment-panel"><div class="panel-heading"><h2>设备总览</h2><span><b>12</b> NODES</span></div><div class="equipment-list" id="equipment-list"></div></section>
+      <section class="panel balance-panel"><div class="panel-heading"><h2>母线平衡</h2><span class="balanced" id="balance-status">平衡</span></div><div id="balance-list"></div><button class="text-button" id="open-ledger-secondary">查看守恒账本 <span>↗</span></button></section>
+    </aside>
+
+    <section class="center-column" aria-label="能源数字孪生场景">
+      <div class="kpi-row">
+        <article class="kpi"><div><span>本地发电</span><i class="kpi-icon electric">ϟ</i></div><p><b id="kpi-power">0</b><span>kW</span></p><small><i class="status-dot"></i>多源协同供电</small></article>
+        <article class="kpi"><div><span>可再生电力占比</span><i class="kpi-icon hydrogen">⌁</i></div><p><b id="kpi-renewable">0</b><span>%</span></p><small>风光 / 总供电</small></article>
+        <article class="kpi"><div><span>储氢余量</span><i class="kpi-icon hydrogen">H₂</i></div><p><b id="kpi-storage">72.0</b><span>kg</span></p><small id="storage-caption">容量 120 kg · SOC 60%</small></article>
+        <article class="kpi"><div><span>综合供热</span><i class="kpi-icon heat">♨</i></div><p><b id="kpi-heat">0</b><span>kW</span></p><small id="heat-caption">余热回收 + 按需补热</small></article>
+      </div>
+      <div class="stage" id="stage">
+        <div id="scene-host" aria-label="可旋转的 3D 能源场站，拖动旋转，滚轮缩放，点击设备查看参数"></div>
+        <div class="stage-top"><div><span class="scene-kicker"><i></i>LIVE DIGITAL TWIN</span><h2>多能协同 · 全域感知</h2><p>HYDROGEN-INTEGRATED ENERGY PARK</p></div><div class="stage-top-actions"><button class="small-button" id="labels-toggle" aria-pressed="true" title="显示或隐藏设备标签">标签</button><button class="small-button" id="fullscreen" title="全屏查看场景" aria-label="全屏场景">⛶</button></div></div>
+        <div class="scene-loading" id="scene-loading"><span></span>正在构建能源数字孪生…</div>
+        <div class="scene-labels" id="scene-labels"></div>
+        <div class="compass" aria-hidden="true"><span>N</span><div id="compass-needle">↑</div><small>W <em>＋</em> E</small></div>
+        <div class="stage-toolbar"><div class="view-buttons"><button class="active" id="view-iso" title="恢复默认视角">透视</button><button id="view-top" title="俯瞰管线布局">俯视</button><button id="auto-rotate" aria-pressed="false">自动环绕</button></div><div class="zoom-buttons"><button id="zoom-in" aria-label="放大场景">＋</button><button id="zoom-out" aria-label="缩小场景">−</button></div></div>
+        <div class="stage-bottom"><div class="energy-legend" id="energy-legend" aria-label="筛选能源流线"><button class="active" data-energy="all">全部</button><button data-energy="electric"><i class="electric-bg"></i>电</button><button data-energy="heat"><i class="heat-bg"></i>热</button><button data-energy="cold"><i class="cold-bg"></i>冷</button><button data-energy="hydrogen"><i class="hydrogen-bg"></i>氢</button><button data-energy="gas"><i class="gas-bg"></i>天然气</button></div><span class="scene-help">拖动旋转 · 滚轮缩放 · 点击设备</span></div>
+      </div>
+      <section class="panel trend-panel"><div class="panel-heading"><h2>实时功率趋势 <small>kW</small></h2><div class="trend-legend"><span><i class="hydrogen-bg"></i>风光发电</span><span title="含园区、电解制氢、压缩与电制冷"><i class="electric-bg"></i>总用电</span><span><i class="cold-bg"></i>电网购电</span></div><span class="history-span">最近 60 仿真分钟</span></div><div class="trend-graph"><div class="chart-axis"><span id="chart-max">1,000</span><span id="chart-mid">500</span><span>0</span></div><svg id="trend-chart" viewBox="0 0 800 105" preserveAspectRatio="none" role="img" aria-label="实时风光发电、全园区总用电和购电功率趋势"><defs><linearGradient id="trend-fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#63e6be" stop-opacity=".16"/><stop offset="1" stop-color="#63e6be" stop-opacity="0"/></linearGradient></defs><path class="chart-grid" d="M0 5H800 M0 52H800 M0 100H800"/><path id="trend-area" fill="url(#trend-fill)"/><path id="trend-renewable" class="trend-line" stroke="#63e6be"/><path id="trend-demand" class="trend-line" stroke="#f4ca64"/><path id="trend-grid" class="trend-line" stroke="#62b5fa"/></svg></div><div class="chart-times"><span id="chart-start">12:00</span><span>1 秒 = 1 仿真分钟 · 滑动窗口</span><span id="chart-end">12:00</span></div></section>
+      <div class="system-strip"><span><i class="status-dot"></i><span id="system-message">正在初始化调度…</span></span><button id="pause" aria-pressed="false">Ⅱ 暂停仿真</button></div>
+    </section>
+
+    <aside class="right-column">
+      <section class="panel control-panel"><div class="panel-heading"><h2>仿真控制台</h2><span class="control-badge">实时联动</span></div><label class="preset-label" for="scenario">运行场景</label><select id="scenario"><option value="balanced">日间协同 · 标准工况</option><option value="renewable">绿电富余 · 储氢优先</option><option value="evening">晚间保供 · 燃料电池</option><option value="peak">高温高负荷 · 削峰运行</option><option value="custom" disabled>自定义工况</option></select><div class="control-group-title"><span>01</span> 气象环境 <small>WEATHER</small></div><div id="weather-controls"></div><div class="control-group-title load-title"><span>02</span> 终端负荷 <small>DEMAND</small></div><div id="load-controls"></div><p class="control-note">温度影响光伏效率、制冷 COP 及冷/热需求</p></section>
+      <section class="panel detail-panel" id="device-detail"><div class="panel-heading"><h2>设备运行参数</h2><span id="device-code">EL-01</span></div><div class="device-title"><span class="device-symbol" id="device-symbol">H₂</span><div><h3 id="device-name">PEM 电解制氢</h3><span id="device-status">运行中</span></div><span class="detail-live">LIVE</span></div><p class="conversion" id="device-equation"></p><div class="device-metrics" id="device-metrics"></div><p class="device-description" id="device-description"></p></section>
+    </aside>
+  </main>
+  <footer class="page-footer"><span>NEXUS <b>ENERGY INTELLIGENCE</b><i></i>多能协同，共赴零碳未来</span><span>交互仿真演示 · 非现场遥测 <span class="footer-sep">/</span> LHV 能量核算</span></footer>
+  <dialog id="info-dialog"><div class="dialog-header"><div><span class="scene-kicker">SYSTEM INSIGHT</span><h2 id="dialog-title">能量守恒账本</h2></div><button id="close-dialog" class="icon-button" aria-label="关闭">×</button></div><div id="dialog-content"></div></dialog>
+  <noscript><div class="noscript">此可视化需要启用 JavaScript。</div></noscript>
+</body>
+</html>

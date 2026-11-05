@@ -1,0 +1,2 @@
+import {group,box} from '../core/geometry.js';
+export function createCashRegister(){const g=group('cash-register');box(g,[.42,.12,.32],[0,.06,0],0xb6c1ae);box(g,[.36,.06,.17],[0,.14,.05],0xd4d9c6);const display=box(g,[.32,.22,.05],[0,.26,-.09],0x526c5c);display.rotation.x=-.2;box(g,[.26,.13,.008],[0,.28,-.058],0x94ba9b);for(let i=0;i<3;i++)for(let j=0;j<4;j++)box(g,[.046,.007,.025],[-.11+j*.07,.176,.01+i*.04],0x728471,false);return g;}
