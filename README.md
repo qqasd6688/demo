@@ -4,20 +4,20 @@ Vibe Pages 收录了 10 件可在浏览器里操作的三维作品。首页可�
 
 ## 作品索引
 
-作品名链接到各自的说明，里面有封面、操作方法、独立运行步骤和素材来源。
+点击截图可查看原图，点击「README」可阅读操作说明，点击「在线」可直接体验作品。
 
-| 首页分类 | 作品 | 可以体验什么 |
-| --- | --- | --- |
-| 自然与漫游 | [三坊七巷](./pages/sanfang-qixiang/readme.md) | 沿五站路线游览福州古街，也可以操控汉服人物步行、跑动，去纪念馆看荷塘锦鲤。 |
-| 自然与漫游 | [微境 MICROCOSM](./pages/microcosm/readme.md) | 在悬浮生态岛上切换雪峰、林间和湖畔镜头，观察四分钟的昼夜循环。 |
-| 空间与生活 | [栖居 HABITAT](./pages/habitat/readme.md) | 在三套户型中布置家具、替换材质和调节家电，按户型保存设计。 |
-| 空间与生活 | [方寸工地](./pages/groundworks/readme.md) | 跟随五台施工机械，调节作业速度，对比晴天与暴雨中的吊运。 |
-| 结构与系统 | [氢能中枢 NEXUS](./pages/hydrogen-nexus/readme.md) | 改变气象和负荷，追踪园区五类能流，在账本中核对供需与储氢变化。 |
-| 结构与系统 | [THERMA 结构实验室](./pages/therma/readme.md) | 拆解热泵洗烘一体机，单独观察部件、追踪循环并导出 PNG。 |
-| 自然与漫游 | [潮间海湾](./pages/tidal-bay/readme.md) | 向浅海添加鱼群、鳐鱼或水母，点出涟漪，调节浪幅和水下光斑。 |
-| 自然与漫游 | [樱日小站](./pages/sakura-station/readme.md) | 环绕日式站台与便利店，近看货架商品，在五种天气间切换。 |
-| 自然与漫游 | [听雨园](./pages/suzhou-garden/readme.md) | 通过游园图前往六处景点，切换第一人称过桥穿廊，开启环境音听雨。 |
-| 视觉实验 | [数字展厅](./pages/interactive-gallery/readme.md) | 观看星空、地球与六个空白展位的光影，宽屏可拖拽环绕。 |
+| 截图 | 名称 | 简介 | 文档 | 预览 |
+| --- | --- | --- | --- | --- |
+| [<img src="./pages/sanfang-qixiang/assets/cover.webp" width="144" alt="三坊七巷作品截图">](./pages/sanfang-qixiang/assets/cover.webp) | 三坊七巷 | 沿五站路线游览福州古街，也可以操控汉服人物步行、跑动，去纪念馆看荷塘锦鲤。 | [README](./pages/sanfang-qixiang/readme.md) | [在线](https://qqasd6688.github.io/demo/sanfang-qixiang/) |
+| [<img src="./pages/microcosm/assets/cover.webp" width="144" alt="微境 MICROCOSM作品截图">](./pages/microcosm/assets/cover.webp) | 微境 MICROCOSM | 在悬浮生态岛上切换雪峰、林间和湖畔镜头，观察四分钟的昼夜循环。 | [README](./pages/microcosm/readme.md) | [在线](https://qqasd6688.github.io/demo/microcosm/) |
+| [<img src="./pages/habitat/assets/cover.webp" width="144" alt="栖居 HABITAT作品截图">](./pages/habitat/assets/cover.webp) | 栖居 HABITAT | 在三套户型中布置家具、替换材质和调节家电，按户型保存设计。 | [README](./pages/habitat/readme.md) | [在线](https://qqasd6688.github.io/demo/habitat/) |
+| [<img src="./pages/groundworks/assets/cover.webp" width="144" alt="方寸工地作品截图">](./pages/groundworks/assets/cover.webp) | 方寸工地 | 跟随五台施工机械，调节作业速度，对比晴天与暴雨中的吊运。 | [README](./pages/groundworks/readme.md) | [在线](https://qqasd6688.github.io/demo/groundworks/) |
+| [<img src="./pages/hydrogen-nexus/assets/cover.webp" width="144" alt="氢能中枢 NEXUS作品截图">](./pages/hydrogen-nexus/assets/cover.webp) | 氢能中枢 NEXUS | 改变气象和负荷，追踪园区五类能流，在账本中核对供需与储氢变化。 | [README](./pages/hydrogen-nexus/readme.md) | [在线](https://qqasd6688.github.io/demo/hydrogen-nexus/) |
+| [<img src="./pages/therma/assets/cover.webp" width="144" alt="THERMA 结构实验室作品截图">](./pages/therma/assets/cover.webp) | THERMA 结构实验室 | 拆解热泵洗烘一体机，单独观察部件、追踪循环并导出 PNG。 | [README](./pages/therma/readme.md) | [在线](https://qqasd6688.github.io/demo/therma/) |
+| [<img src="./pages/tidal-bay/assets/cover.webp" width="144" alt="潮间海湾作品截图">](./pages/tidal-bay/assets/cover.webp) | 潮间海湾 | 向浅海添加鱼群、鳐鱼或水母，点出涟漪，调节浪幅和水下光斑。 | [README](./pages/tidal-bay/readme.md) | [在线](https://qqasd6688.github.io/demo/tidal-bay/) |
+| [<img src="./pages/sakura-station/assets/cover.webp" width="144" alt="樱日小站作品截图">](./pages/sakura-station/assets/cover.webp) | 樱日小站 | 环绕日式站台与便利店，近看货架商品，在五种天气间切换。 | [README](./pages/sakura-station/readme.md) | [在线](https://qqasd6688.github.io/demo/sakura-station/) |
+| [<img src="./pages/suzhou-garden/assets/cover.webp" width="144" alt="听雨园作品截图">](./pages/suzhou-garden/assets/cover.webp) | 听雨园 | 通过游园图前往六处景点，切换第一人称过桥穿廊，开启环境音听雨。 | [README](./pages/suzhou-garden/readme.md) | [在线](https://qqasd6688.github.io/demo/suzhou-garden/) |
+| [<img src="./pages/interactive-gallery/assets/cover.webp" width="144" alt="数字展厅作品截图">](./pages/interactive-gallery/assets/cover.webp) | 数字展厅 | 观看星空、地球与六个空白展位的光影，宽屏可拖拽环绕。 | [README](./pages/interactive-gallery/readme.md) | [在线](https://qqasd6688.github.io/demo/interactive-gallery/) |
 
 ## 本地运行
 
